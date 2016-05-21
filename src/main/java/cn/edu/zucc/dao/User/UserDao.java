@@ -9,9 +9,11 @@ import java.util.List;
  */
 public interface UserDao {
     public List<UsertableBean> getList();
-    public int add(UsertableBean fileupdownBean);
-    public int delete(UsertableBean fileupdownBean);
-    public int update(UsertableBean fileupdownBean);
+    public void save(UsertableBean usertableBean);
+    public void delete(UsertableBean usertableBean);
+    public void update(UsertableBean usertableBean);
     public UsertableBean getById(Integer id);
+    public List<UsertableBean> findByqQuery(String hql);
+    public UsertableBean login(String username, String password);
 
 }
