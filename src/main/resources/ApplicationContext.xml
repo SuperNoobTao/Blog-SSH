@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+		xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+		default-autowire="byName" default-lazy-init="true">
+
+
+	<!--数据库配置-->
+	<bean id="dbConect"
+		  class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass"
+				  value="com.mysql.jdbc.Driver">
+		</property>
+
+		<!-- 服务器数据库  -->
+		<property name="jdbcUrl"
+				  value="jdbc:mysql://127.0.0.1:3306/ion?useUnicode=true&amp;characterEncoding=UTF-8">
+		</property>
+		<property name="user" value="root"></property>
+		<property name="password" value="zucc"></property>
+
+		<property name="minPoolSize" value="20"/>
+		<property name="maxPoolSize" value="100"/>
+		<property name="maxIdleTime" value="10"/>
+		<property name="acquireIncrement" value="5"/>
+		<property name="maxStatements" value="0"/>
+		<property name="initialPoolSize" value="20"/>
+		<property name="idleConnectionTestPeriod" value="10"/>
+	</bean>
+
+
+	<bean id="sessionFactory"
+		  class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dbConect" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/ion</prop>
+				<prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+				<!-- <prop key="hibernate.show_sql">true</prop> -->
+			</props>
+		</property>
+		<property name="packagesToScan" value="cn.edu.zucc.model" />
+	</bean>
+
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+
+
+	<!-- 配置事务的传播特性 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED"/>
+			<tx:method name="del*" propagation="REQUIRED"/>
+			<tx:method name="modify*" propagation="REQUIRED"/>
+			<tx:method name="*" read-only="true"/>
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 哪些类的哪些方法参与事务 -->
+	<aop:config proxy-target-class="true">
+		<aop:advisor  pointcut="execution(* cn.edu.zucc.service.*.*(..))" advice-ref="txAdvice"/>
+
+	</aop:config>
+
+
+
+</beans>
