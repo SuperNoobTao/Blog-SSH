@@ -7,6 +7,7 @@
   <version>1.0-SNAPSHOT</version>
   <name>ssh Maven Webapp</name>
   <url>http://maven.apache.org</url>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -34,21 +35,60 @@
     <dependency>
       <groupId>org.apache.struts</groupId>
       <artifactId>struts2-core</artifactId>
-      <version>2.3.1</version>
+      <version>${struts.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>javassist</groupId>
+          <artifactId>javassist</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
       <groupId>org.apache.struts</groupId>
       <artifactId>struts2-spring-plugin</artifactId>
-      <version>2.3.1</version>
+      <version>${struts.version}</version>
     </dependency>
 
+
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>taglibs</groupId>
+      <artifactId>standard</artifactId>
+      <version>1.1.2</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>3.0-alpha-1</version>
+    </dependency>
+
+    <!-- 添加json支持 -->
+    <dependency>
+      <groupId>org.apache.struts</groupId>
+      <artifactId>struts2-json-plugin</artifactId>
+      <version>${struts.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>net.sf.json-lib</groupId>
+      <artifactId>json-lib</artifactId>
+      <version>2.3</version>
+      <classifier>jdk15</classifier>
+    </dependency>
 
     <!-- 添加Hibernate依赖 -->
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
-      <version>3.6.5.Final</version>
+      <version>${hibernate.version}</version>
     </dependency>
     <dependency>
       <groupId>commons-dbcp</groupId>
@@ -56,97 +96,161 @@
       <version>1.4</version>
     </dependency>
 
-    <!-- 添加Log4J依赖 -->
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>1.2.16</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>1.6.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-nop</artifactId>
-      <version>1.6.4</version>
-    </dependency>
+    <!-- 添加Log4J依赖  解决maven传递依赖中的版本冲突  -->
+    <!--<dependency>-->
+      <!--<groupId>log4j</groupId>-->
+      <!--<artifactId>log4j</artifactId>-->
+      <!--<version>1.2.15</version>-->
+      <!--<exclusions>-->
+        <!--<exclusion>-->
+          <!--<groupId>javax.mail</groupId>-->
+          <!--<artifactId>mail</artifactId>-->
+        <!--</exclusion>-->
+        <!--<exclusion>-->
+          <!--<groupId>javax.jms</groupId>-->
+          <!--<artifactId>jms</artifactId>-->
+        <!--</exclusion>-->
+        <!--<exclusion>-->
+          <!--<groupId>com.sun.jdmk</groupId>-->
+          <!--<artifactId>jmxtools</artifactId>-->
+        <!--</exclusion>-->
+        <!--<exclusion>-->
+          <!--<groupId>com.sun.jmx</groupId>-->
+          <!--<artifactId>jmxri</artifactId>-->
+        <!--</exclusion>-->
+      <!--</exclusions>-->
+      <!--<scope>runtime</scope>-->
+    <!--</dependency>-->
 
     <!-- 添加javassist -->
+    <!--     <dependency> -->
+    <!--         <groupId>javassist</groupId> -->
+    <!--         <artifactId>javassist</artifactId> -->
+    <!--         <version>3.11.0.GA</version> -->
+    <!--     </dependency> -->
+
     <dependency>
-      <groupId>javassist</groupId>
-      <artifactId>javassist</artifactId>
-      <version>3.11.0.GA</version>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.9</version>
     </dependency>
 
     <!-- 添加Spring依赖 -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
-      <version>3.1.1.RELEASE</version>
+      <version>${spring.version}</version>
+      <scope>compile</scope>
     </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-beans</artifactId>
-      <version>3.1.1.RELEASE</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-      <version>3.1.1.RELEASE</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-jdbc</artifactId>
-      <version>3.1.1.RELEASE</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-orm</artifactId>
-      <version>3.1.1.RELEASE</version>
-    </dependency>
-
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-web</artifactId>
-      <version>3.1.1.RELEASE</version>
+      <version>${spring.version}</version>
+      <scope>compile</scope>
     </dependency>
-
-
-    <!-- 添加Spring-aop依赖 -->
+         <dependency>
+             <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+         <version>${spring.version}</version>
+           <scope>compile</scope>
+           </dependency>
+    <!--
+        Bean Factory and JavaBeans utilities (depends on spring-core)
+        Define this if you use Spring Bean APIs (org.springframework.beans.*)
+    -->
     <dependency>
-      <groupId>org.aspectj</groupId>
-      <artifactId>aspectjrt</artifactId>
-      <version>1.6.12</version>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>${spring.version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.aspectj</groupId>
-      <artifactId>aspectjweaver</artifactId>
-      <version>1.5.4</version>
-    </dependency>
-    <dependency>
-      <groupId>cglib</groupId>
-      <artifactId>cglib-nodep</artifactId>
-      <version>2.2</version>
-    </dependency>
+    <!--
+        Aspect Oriented Programming (AOP) Framework (depends on spring-core, spring-beans)
+        Define this if you use Spring AOP APIs (org.springframework.aop.*)
+    -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aop</artifactId>
-      <version>2.5.6</version>
+      <version>${spring.version}</version>
+    </dependency>
+    <!-- 面向切面使用aspectj, cglib的作用是当对没有实现接口的类使用aspect的时候，可以使用CGLIB
+        <aop:aspectj-autoproxy proxy-target-class="true"/>
+    -->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjtools</artifactId>
+      <version>1.6.2</version>
+    </dependency>
+    <dependency>
+      <groupId>cglib</groupId>
+      <artifactId>cglib</artifactId>
+      <version>3.1</version>
+    </dependency>
+    <!--
+        Application Context (depends on spring-core, spring-expression, spring-aop, spring-beans)
+        This is the central artifact for Spring's Dependency Injection Container and is generally always defined
+    -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!--
+        Object-to-Relation-Mapping (ORM) integration with Hibernate, JPA, and iBatis.
+        (depends on spring-core, spring-beans, spring-context, spring-tx)
+        Define this if you need ORM (org.springframework.orm.*)
+    -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!--
+        Transaction Management Abstraction (depends on spring-core, spring-beans, spring-aop, spring-context)
+        Define this if you use Spring Transactions or DAO Exception Hierarchy
+        (org.springframework.transaction.*/org.springframework.dao.*)
+    -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-tx</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!--
+        JDBC Data Access Library (depends on spring-core, spring-beans, spring-context, spring-tx)
+        Define this if you use Spring's JdbcTemplate API (org.springframework.jdbc.*)
+    -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${spring.version}</version>
     </dependency>
 
   </dependencies>
+
+
   <build>
     <finalName>ssh</finalName>
-
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
-
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <spring.version>4.2.6.RELEASE</spring.version>
+    <hibernate.version>4.3.6.Final</hibernate.version>
+    <struts.version>2.3.1</struts.version>
+  </properties>
 
 </project>

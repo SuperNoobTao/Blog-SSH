@@ -13,7 +13,6 @@ public interface UserDao {
     public void delete(UsertableBean usertableBean);
     public void update(UsertableBean usertableBean);
     public UsertableBean getById(Integer id);
-    public List<UsertableBean> findByqQuery(String hql);
     public UsertableBean login(String username, String password);
 
 }

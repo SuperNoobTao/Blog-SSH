@@ -44,11 +44,11 @@
 				<prop key="hibernate.dialect">
 					org.hibernate.dialect.MySQLDialect
 				</prop>
-				<prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/ion</prop>
-				<prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+
 				<!-- <prop key="hibernate.show_sql">true</prop> -->
 			</props>
 		</property>
+
 		<property name="packagesToScan" value="cn.edu.zucc.model" />
 	</bean>
 
@@ -61,6 +61,7 @@
 
 
 	<!-- 配置事务的传播特性 -->
+
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="add*" propagation="REQUIRED"/>
@@ -75,6 +76,33 @@
 		<aop:advisor  pointcut="execution(* cn.edu.zucc.service.*.*(..))" advice-ref="txAdvice"/>
 
 	</aop:config>
+
+
+
+	<!--在通用DAO中依赖注入sessionFactory-->
+	<bean id="baseDao"
+		  class="cn.edu.zucc.common.CommonDAO" abstract="true">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+
+	<!--在useraction中注入service-->
+	<!--在useraction中注入userbeen-->
+	<bean id="UserAction" class="cn.edu.zucc.action.UserAction"  >
+		<property name="userService" ref="userService" ></property>
+		<property name="usertableBean" ref="usertableBean"></property>
+	</bean>
+	<bean id="userService" class="cn.edu.zucc.service.User.UserServiceImpl" />
+	<bean id="usertableBean" class="cn.edu.zucc.model.UsertableBean" />
+
+	<!--在userServiceImpl中注入userDao-->
+	<bean id="UserService" class="cn.edu.zucc.service.User.UserServiceImpl"  >
+		<property name="userDao" ref="userDao" ></property>
+	</bean>
+	<bean id="userDao" class="cn.edu.zucc.dao.User.UserDaoImpl" />
+
 
 
 
