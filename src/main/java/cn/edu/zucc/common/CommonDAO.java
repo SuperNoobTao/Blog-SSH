@@ -10,6 +10,8 @@ import java.util.List;
  * Created by shentao on 2016/5/21.
  */
 public interface CommonDAO<T> {
+
+
     public void save(T transientInstance) throws Exception;
 
     public void delete(T persistentInstance) throws Exception;

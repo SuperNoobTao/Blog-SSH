@@ -11,7 +11,10 @@
                         <result name="success">/showuser.jsp</result>
                         <result name="error">/login.jsp</result>
                 </action>
-
+                <action name="UserAction_register" class="cn.edu.zucc.action.UserAction" method="register">
+                        <result name="success">/login.jsp</result>
+                        <result name="error">/login.jsp</result>
+                </action>
 
 
 

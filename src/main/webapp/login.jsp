@@ -33,7 +33,6 @@
   <hr />
 </div>
 
-
   <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
       <div class="am-u-md-8 am-u-sm-centered">
         <form method="post" class="am-form" action="UserAction_login.action" >
@@ -58,7 +57,6 @@
         <p>© 2016 -------------------------------------------</p>
 
 </div>
-
 </div>
 </body>
 </html>

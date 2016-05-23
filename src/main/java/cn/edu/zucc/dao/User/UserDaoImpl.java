@@ -12,24 +12,11 @@ import java.util.List;
  */
 public class UserDaoImpl extends CommonDaoImpl<UsertableBean> implements  UserDao{
 
-    public List<UsertableBean> getList() {
-        return null;
-    }
-
-    public void save(UsertableBean usertableBean) {
-    }
-    public void delete(UsertableBean usertableBean) {
-    }
-    public void update(UsertableBean usertableBean) {
-    }
-
-    public UsertableBean getById(Integer id) {
-        return null;
-    }
 
 
 
 
+    @Override
     public UsertableBean login(String username, String password) {
         try {
             String hql ="from UsertableBean where studentNumber=? and password=?";

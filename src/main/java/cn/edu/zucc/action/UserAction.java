@@ -4,6 +4,7 @@ import cn.edu.zucc.model.UsertableBean;
 import cn.edu.zucc.service.User.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
 
 /**
  * Created by shentao on 2016/5/22.
@@ -43,6 +44,20 @@ public class UserAction extends ActionSupport{
             return "success";
         }
         return  "error";
+    }
+
+
+    public  String register() throws Exception{
+
+        String studentNumber = this.getUsertableBean().getStudentNumber();
+        String pwd = this.getUsertableBean().getPassword();
+        System.out.println("username=" + studentNumber);
+        System.out.println("pwd=" + pwd);
+
+
+        return  null;
+
+
     }
 
 
