@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService{
 
 
 
-    public UsertableBean login(String userid, String pwd) {
-        return getUserDao().login(userid,pwd);
+    public UsertableBean login(String username, String password) {
+        return getUserDao().login(username,password);
     }
 }

@@ -19,7 +19,7 @@
 
 		<!-- 服务器数据库  -->
 		<property name="jdbcUrl"
-				  value="jdbc:mysql://127.0.0.1:3306/ion?useUnicode=true&amp;characterEncoding=UTF-8">
+				  value="jdbc:mysql://127.0.0.1:3306/blogs?useUnicode=true&amp;characterEncoding=UTF-8">
 		</property>
 		<property name="user" value="root"></property>
 		<property name="password" value="zucc"></property>
@@ -45,7 +45,7 @@
 					org.hibernate.dialect.MySQLDialect
 				</prop>
 
-				<!-- <prop key="hibernate.show_sql">true</prop> -->
+				 <prop key="hibernate.show_sql">true</prop>
 			</props>
 		</property>
 
@@ -73,7 +73,7 @@
 
 	<!-- 哪些类的哪些方法参与事务 -->
 	<aop:config proxy-target-class="true">
-		<aop:advisor  pointcut="execution(* cn.edu.zucc.service.*.*(..))" advice-ref="txAdvice"/>
+		<aop:advisor  pointcut="execution(* cn.edu.zucc.service..*.*(..))" advice-ref="txAdvice"/>
 
 	</aop:config>
 
@@ -81,11 +81,14 @@
 
 	<!--在通用DAO中依赖注入sessionFactory-->
 	<bean id="baseDao"
-		  class="cn.edu.zucc.common.CommonDAO" abstract="true">
+		  class="cn.edu.zucc.common.CommonDaoImpl" abstract="true">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+
+
+
 
 
 	<!--在useraction中注入service-->

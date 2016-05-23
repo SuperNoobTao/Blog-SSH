@@ -1,22 +1,16 @@
 package cn.edu.zucc.dao.User;
 
-import cn.edu.zucc.common.CommonDAO;
+import cn.edu.zucc.common.CommonDaoImpl;
 import cn.edu.zucc.model.UsertableBean;
-import com.sun.xml.internal.bind.v2.model.core.ID;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.Intercepter;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by shentao on 2016/5/21.
  */
-public class UserDaoImpl extends CommonDAO<UsertableBean,Integer> implements  UserDao{
-
-
+public class UserDaoImpl extends CommonDaoImpl<UsertableBean> implements  UserDao{
 
     public List<UsertableBean> getList() {
         return null;
