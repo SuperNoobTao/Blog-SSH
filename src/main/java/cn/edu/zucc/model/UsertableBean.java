@@ -1,12 +1,13 @@
 package cn.edu.zucc.model;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 /**
  * Created by shentao on 2016/5/20.
  */
 @Entity
-@Table(name = "usertable", schema = "ion")
+@Table(name = "usertable", schema = "blogs")
 public class UsertableBean {
     private int userId;
     private String studentNumber;
@@ -17,6 +18,8 @@ public class UsertableBean {
     private String school;
     private Double averageScore;
     private Integer amount;
+    private Timestamp createtime;
+    private String email;
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -142,5 +145,25 @@ public class UsertableBean {
         result = 31 * result + (averageScore != null ? averageScore.hashCode() : 0);
         result = 31 * result + (amount != null ? amount.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "createtime")
+    public Timestamp getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(Timestamp createtime) {
+        this.createtime = createtime;
+    }
+
+    @Basic
+    @Column(name = "email")
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

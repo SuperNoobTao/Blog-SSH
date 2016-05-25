@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface UserService {
 
-    public void save(UsertableBean usertableBean) throws Exception;
+    public int register(UsertableBean usertableBean) throws Exception;
     public void delete(UsertableBean usertableBean) throws Exception;
     public void update(UsertableBean usertableBean) throws Exception;
     public UsertableBean login(String username, String password) throws Exception;

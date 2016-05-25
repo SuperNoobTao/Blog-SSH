@@ -25,7 +25,7 @@ public class test {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
         SessionFactory sessionFactory = (SessionFactory) context.getBean("sessionFactory");
-        Session session = sessionFactory.openSession();
+        Session session = sessionFactory.getCurrentSession();
         List list = (List) session.createQuery("from UsertableBean ").list();
 
         Iterator iterator = list.iterator();
@@ -33,8 +33,15 @@ public class test {
             UsertableBean users = (UsertableBean) iterator.next();
             System.out.println(users.getStudentName());
         }
-        session.getTransaction().commit();
+
+
+
+
+
+
+
 
     }
+
 
 }

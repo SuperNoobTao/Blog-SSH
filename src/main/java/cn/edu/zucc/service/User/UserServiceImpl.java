@@ -49,8 +49,15 @@ public class UserServiceImpl implements UserService{
 
 
     @Override
-    public void save(UsertableBean usertableBean) throws Exception {
+    public int register(UsertableBean usertableBean) throws Exception {
+        String studentNumber = usertableBean.getStudentNumber();
+        List list = getUserDao().findByqQuery("from UsertableBean where studentNumber='"+studentNumber+"'");
+        if(list == null){
         getUserDao().save(usertableBean);
+            return 1;
+        }
+            return -1;
+
     }
 
     @Override

@@ -41,22 +41,34 @@ public class UserAction extends ActionSupport{
         if (usertableBean!=null) {
             ActionContext.getContext().getSession().put("username",
                     this.getUsertableBean().getStudentName());
-            return "success";
+            return SUCCESS;
         }
-        return  "error";
+        return ERROR;
     }
 
 
     public  String register() throws Exception{
-
         String studentNumber = this.getUsertableBean().getStudentNumber();
         String pwd = this.getUsertableBean().getPassword();
+        String email = this.getUsertableBean().getEmail();
+        String cell_phone = this.getUsertableBean().getCellPhone();
         System.out.println("username=" + studentNumber);
         System.out.println("pwd=" + pwd);
+        System.out.println("email=" + email);
+        System.out.println("cell_phone=" + cell_phone);
 
+        UsertableBean user = new UsertableBean();
+        user.setStudentName(studentNumber);
+        user.setPassword(pwd);
+        user.setEmail(email);
+        user.setCellPhone(cell_phone);
 
-        return  null;
+        int i = getUserService().register(user);
+        if(i==1){
+            return SUCCESS;
+        }
 
+       return ERROR;
 
     }
 

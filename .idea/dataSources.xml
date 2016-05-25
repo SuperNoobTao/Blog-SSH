@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3475627743">
-    <data-source source="LOCAL" name="MySQL - ion@localhost" uuid="12a0a9a0-7839-4330-8b76-1e4711310d4e">
+  <component name="DataSourceManagerImpl" format="xml" hash="2062317314">
+    <data-source source="LOCAL" name="MySQL - blogs@localhost" uuid="ed9e5d62-72ba-452c-b213-6e104b56ab2b">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/ion</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/blogs</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />
