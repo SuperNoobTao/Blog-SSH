@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="IOnline:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="ssh.war">
-      <element id="artifact" artifact-name="IOnline:war exploded" />
-    </root>
-  </artifact>
-</component>

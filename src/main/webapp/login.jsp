@@ -10,7 +10,9 @@
   <meta http-equiv="Cache-Control" content="no-siteapp" />
   <link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
   <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+
   <style>
+
     .header {
       text-align: center;
     }
@@ -24,13 +26,14 @@
     }
   </style>
 </head>
+
 <body>
 <div class="header">
   <div class="am-g">
     <h1>IOnline</h1>
     <p>分享知识<br/>一个知识分享的平台</p>
   </div>
-  <hr />
+
 </div>
 
   <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
@@ -59,9 +62,6 @@
 
         </form>
 
-
-
-        <hr>
         <p>© 2016 -------------------------------------------</p>
 
 </div>

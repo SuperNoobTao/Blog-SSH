@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="MySQL - blogs@localhost" uuid="ed9e5d62-72ba-452c-b213-6e104b56ab2b">
+  <data-source name="MySQL - blogs@localhost" uuid="bd8f829b-80d2-4367-8449-5dcebcf77912">
     <database-info product="MySQL" version="5.6.15" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
@@ -8,45 +8,235 @@
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
     <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
       <schema id="1" name="blogs"/>
-      <table id="2" parent="1" name="usertable"/>
-      <column id="3" parent="2" name="user_id">
+      <table id="2" parent="1" name="article"/>
+      <table id="3" parent="1" name="category"/>
+      <table id="4" parent="1" name="comment"/>
+      <table id="5" parent="1" name="guest"/>
+      <table id="6" parent="1" name="usertable"/>
+      <column id="7" parent="2" name="artid">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="4" parent="2" name="student_number">
+      <column id="8" parent="2" name="createtime">
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="9" parent="2" name="author">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="5" parent="2" name="password">
+      <column id="10" parent="2" name="likes">
+        <data-type>int(255)</data-type>
+      </column>
+      <column id="11" parent="2" name="looked">
+        <data-type>int(255)</data-type>
+      </column>
+      <column id="12" parent="2" name="title">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="6" parent="2" name="student_name">
+      <column id="13" parent="2" name="meta">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="7" parent="2" name="sex">
+      <column id="14" parent="2" name="content">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="15" parent="2" name="staticUrl">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="8" parent="2" name="cell_phone">
+      <column id="16" parent="2" name="type">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="9" parent="2" name="school">
+      <column id="17" parent="2" name="top">
+        <data-type>int(255)</data-type>
+      </column>
+      <column id="18" parent="2" name="remark">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="10" parent="2" name="average_score">
-        <data-type>double</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
+      <column id="19" parent="2" name="removetime">
+        <data-type>timestamp</data-type>
       </column>
-      <column id="11" parent="2" name="amount">
+      <column id="20" parent="2" name="user_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="21" parent="2" name="cid">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="22" parent="2" name="cid">
+        <columns>cid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="23" parent="2" name="uid">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="24" parent="2" name="PRIMARY">
+        <columns>artid</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="25" parent="2" name="cid">
+        <columns>cid</columns>
+        <ref-key>~.category.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="26" parent="2" name="uid">
+        <columns>user_id</columns>
+        <ref-key>~.usertable.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="27" parent="3" name="cid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="28" parent="3" name="cname">
+        <mandatory>1</mandatory>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="29" parent="3" name="ctime">
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="30" parent="3" name="remark">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="31" parent="3" name="PRIMARY">
+        <columns>cid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="32" parent="4" name="comid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="33" parent="4" name="comcontent">
+        <mandatory>1</mandatory>
+        <data-type>varchar(256)</data-type>
+      </column>
+      <column id="34" parent="4" name="gid">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="35" parent="4" name="artid">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="36" parent="4" name="comtime">
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="37" parent="4" name="removetime">
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="38" parent="4" name="remark">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <index id="39" parent="4" name="comment_ibfk_2">
+        <columns>artid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="40" parent="4" name="fk_comment_guest">
+        <columns>gid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="41" parent="4" name="PRIMARY">
+        <columns>comid</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="42" parent="4" name="comment_ibfk_1">
+        <columns>gid</columns>
+        <ref-key>~.guest.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="43" parent="4" name="comment_ibfk_2">
+        <columns>artid</columns>
+        <ref-key>~.article.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="44" parent="5" name="gid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="45" parent="5" name="gname">
+        <mandatory>1</mandatory>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="46" parent="5" name="gemail">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="47" parent="5" name="rss">
         <data-type>int(11)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="12" parent="2" name="createtime">
-        <data-type>timestamp</data-type>
+      <index id="48" parent="5" name="gemail">
+        <columns>gemail</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="49" parent="5" name="index_guest_gemail">
+        <columns>gemail</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="50" parent="5" name="index_guest_gid">
+        <columns>gid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="51" parent="5" name="index_guest_rss">
+        <columns>rss</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="52" parent="5" name="gemail">
+        <columns>gemail</columns>
+        <underlying-index>gemail</underlying-index>
+      </key>
+      <key id="53" parent="5" name="PRIMARY">
+        <columns>gid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="54" parent="6" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
-      <column id="13" parent="2" name="email">
+      <column id="55" parent="6" name="student_number">
         <data-type>varchar(255)</data-type>
       </column>
-      <key id="14" parent="2" name="PRIMARY">
+      <column id="56" parent="6" name="password">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="57" parent="6" name="student_name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="58" parent="6" name="sex">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="59" parent="6" name="cell_phone">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="60" parent="6" name="school">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="61" parent="6" name="average_score">
+        <data-type>double</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="62" parent="6" name="amount">
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="63" parent="6" name="createtime">
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="64" parent="6" name="email">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="65" parent="6" name="removetime">
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="66" parent="6" name="remark">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="67" parent="6" name="PRIMARY">
         <columns>user_id</columns>
         <primary>1</primary>
       </key>

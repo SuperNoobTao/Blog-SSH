@@ -24,10 +24,12 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="IOnline" />
+        <module name="MyBlog" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="IOnline" target="1.7" />
+      <module name="MyBlog" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -20,6 +20,8 @@ public class UsertableBean {
     private Integer amount;
     private Timestamp createtime;
     private String email;
+    private Timestamp removetime;
+    private String remark;
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -165,5 +167,25 @@ public class UsertableBean {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Basic
+    @Column(name = "removetime")
+    public Timestamp getRemovetime() {
+        return removetime;
+    }
+
+    public void setRemovetime(Timestamp removetime) {
+        this.removetime = removetime;
+    }
+
+    @Basic
+    @Column(name = "remark")
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 }

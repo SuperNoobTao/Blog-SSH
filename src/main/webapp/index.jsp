@@ -1,75 +1,108 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: 宇强
+  Date: 2016/3/11 0011
+  Time: 23:19rows="30" cols="50"
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!doctype html>
-<html class="no-js fixed-layout">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!DOCTYPE HTML>
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Amaze UI Admin index Examples</title>
-
-  <meta name="keywords" content="index">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <link rel="icon" type="image/png" hre="assets/i/favicon.png">
-  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
-  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-  <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
-  <link rel="stylesheet" href="assets/css/admin.css">
+  <title>Coselding博客</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <link rel="stylesheet" type="text/css" media="all" href="${pageContext.request.contextPath}/style.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="${pageContext.request.contextPath}/style/css/font-awesome.min.css" />
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,700,700italic|Open+Sans+Condensed:300,700" rel="stylesheet" type="text/css">
+  <!--[if IE 7]>
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/css/font-awesome-ie7.min.css"/>
+  <![endif]-->
+  <!--[if IE 8]>
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/css/ie8.css" media="all" />
+  <![endif]-->
+  <!--[if IE 9]>
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/css/ie9.css" media="all" />
+  <![endif]-->
+  <script type="text/javascript" src="${pageContext.request.contextPath}/style/js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="${pageContext.request.contextPath}/style/js/ddsmoothmenu.js"></script>
+  <script type="text/javascript" src="${pageContext.request.contextPath}/style/js/retina.js"></script>
+  <script type="text/javascript" src="${pageContext.request.contextPath}/style/js/selectnav.js"></script>
+  <script type="text/javascript" src="${pageContext.request.contextPath}/style/js/jquery.backstretch.min.js"></script>
+  <script type="text/javascript">
+    $.backstretch("${pageContext.request.contextPath}/style/images/bg/1.jpg");
+  </script>
 </head>
 <body>
-<!--[if lte IE 9]>
+<%@include file="/public/header.jsp"%>
 
-<![endif]-->
+<div class="wrapper">
+  <div class="content">
+    <c:forEach items="${params.topArticles}" var="art">
+      <div class="post format-image box">
+        <div class="details">
+          <span class="icon-image">${fn:substring(art.time,0,16)}</span>
+            <span class="likes"><a href="#"
+                                   class="likeThis">${art.likes}</a></span>
+          <span class="comments"><a href="#">${art.looked}</a></span>
+        </div>
+        <h1 class="title"><a href="${pageContext.request.contextPath}${art.staticURL}.html">${art.title}</a></h1>
 
-<header class="am-topbar am-topbar-inverse admin-header">
-  <div class="am-topbar-brand">
-          <strong>  几乎  </strong>
+        <p>${art.meta}</p>
+
+        <div class="tags"><a href="#">${art.type}</a></div>
+        <div class="post-nav">
+            <span class="nav-prev"><a
+                    href="${pageContext.request.contextPath}/listArticle.action?cid=${art.cid}">类型：${art.cname}</a></span>
+          <span class="nav-next"><a href="#">作者：${art.author}</a></span>
+
+          <div class="clear"></div>
+        </div>
+      </div>
+    </c:forEach>
+    <div class="post format-image box">
+      <h3 style="text-align:center"><a href="${pageContext.request.contextPath}/listArticle.action">查看更多</a></h3>
+    </div>
   </div>
 
-  <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+  <div class="sidebar box">
+    <div class="sidebox widget">
+      <h3 class="widget-title">最近更新</h3>
+      <ul class="post-list">
+        <c:forEach items="${params.lastArticlesList}" var="art">
+          <li>
+            <div class="meta">
+              <h5><a href="${pageContext.request.contextPath}${art.staticURL}.html">${art.title}</a></h5>
+              <em>${fn:substring(art.time,0,16)}</em>
+            </div>
+          </li>
+        </c:forEach>
+        <li class="more"><a href="${pageContext.request.contextPath}/listArticle.action">more</a></li>
+      </ul>
+    </div>
 
-    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-      <li>
-  <span class="am-icon-envelope-o">
+    <div class="sidebox widget">
+      <h3 class="widget-title"><i class="icon-search icon"></i></h3>
 
-        <button class="am-btn am-btn-primary am-btn-xs" type="button">搜索</button>
-      </span>
+      <form class="searchform" method="post" action="${pageContext.request.contextPath}/search.action">
+        <input type="text" name="key" value="输入关键字搜索博客..." onFocus="this.value=''"
+               onBlur="this.value='输入关键字搜索博客...'"/>
+      </form>
+    </div>
 
-  </li>
-      <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 消息 <span class="am-badge am-badge-warning">5</span></a></li>
-      <li class="am-dropdown" data-am-dropdown>
-        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-          <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
-
-        </a>
-        <ul class="am-dropdown-content">
-          <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
-          <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
-          <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
-        </ul>
-      </li>
-      <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
-    </ul>
+    <div class="sidebox widget">
+      <h3 class="widget-title categories">分类</h3>
+      <ul class="categories">
+        <c:forEach items="${params.categories}" var="cate">
+          <li><a href="${pageContext.request.contextPath}/listArticle.action?cid=${cate.cid}">${cate.cname}</a></li>
+        </c:forEach>
+      </ul>
+    </div>
   </div>
-</header>
+</div>
 
-
-
-
-
-
-<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
-
-<!--[if lt IE 9]>
-<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
-<![endif]-->
-
-<!--[if (gte IE 9)|!(IE)]><!-->
-<script src="assets/js/jquery.min.js"></script>
-<!--<![endif]-->
-<script src="assets/js/amazeui.min.js"></script>
-
+<%@include file="/public/footer.jsp"%>
 </body>
 </html>
