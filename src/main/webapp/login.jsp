@@ -41,13 +41,13 @@
         <form method="post" class="am-form" action="UserAction_login.action" >
           <div class="am-input-group am-form-group">
             <span class="am-input-group-label"><i class="am-icon-user am-icon-fw"></i></span>
-            <input type="text" class="am-form-field" name="usertableBean.studentNumber" placeholder="Username">
+            <input type="text" class="am-form-field" name="usertableBean.userAcount" placeholder="Username">
           </div>
 
           <%--密码--%>
           <div class="am-input-group am-form-group">
             <span class="am-input-group-label"><i class="am-icon-lock am-icon-fw"></i></span>
-            <input type="text" class="am-form-field" name="usertableBean.password" placeholder="Password">
+            <input type="text" class="am-form-field" name="usertableBean.userPwd" placeholder="Password">
           </div>
 
           <label for="remember-me">

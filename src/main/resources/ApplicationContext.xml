@@ -101,7 +101,7 @@
 		<property name="usertableBean" ref="usertableBean"></property>
 	</bean>
 	<bean id="userService" class="cn.edu.zucc.service.User.UserServiceImpl" />
-	<bean id="usertableBean" class="cn.edu.zucc.model.UsertableBean" />
+	<bean id="usertableBean" class="cn.edu.zucc.model.TbUserEntity" />
 
 	<!--在userServiceImpl中注入userDao-->
 	<bean id="UserService" class="cn.edu.zucc.service.User.UserServiceImpl"  >

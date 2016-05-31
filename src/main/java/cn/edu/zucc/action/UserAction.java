@@ -1,17 +1,16 @@
 package cn.edu.zucc.action;
 
-import cn.edu.zucc.model.UsertableBean;
+import cn.edu.zucc.model.TbUserEntity;
 import cn.edu.zucc.service.User.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
 
 /**
  * Created by shentao on 2016/5/22.
  */
 public class UserAction extends ActionSupport{
     private UserService userService;
-    private UsertableBean usertableBean;
+    private TbUserEntity usertableBean;
 
     public UserService getUserService() {
         return userService;
@@ -21,26 +20,26 @@ public class UserAction extends ActionSupport{
         this.userService = userService;
     }
 
-    public UsertableBean getUsertableBean() {
+    public TbUserEntity getUsertableBean() {
         return usertableBean;
     }
 
-    public void setUsertableBean(UsertableBean usertableBean) {
+    public void setUsertableBean(TbUserEntity usertableBean) {
         this.usertableBean = usertableBean;
     }
 
 
 
     public String login() throws Exception {
-        String studentNumber = this.getUsertableBean().getStudentNumber();
-        String pwd = this.getUsertableBean().getPassword();
+        String studentNumber = this.getUsertableBean().getUserAcount();
+        String pwd = this.getUsertableBean().getUserPwd();
         System.out.println("username=" + studentNumber);
         System.out.println("pwd=" + pwd);
         usertableBean = getUserService().login(studentNumber,pwd);
 
         if (usertableBean!=null) {
             ActionContext.getContext().getSession().put("username",
-                    this.getUsertableBean().getStudentName());
+                    this.getUsertableBean().getUserAcount());
             return SUCCESS;
         }
         return ERROR;
@@ -48,17 +47,17 @@ public class UserAction extends ActionSupport{
 
 
     public  String register() throws Exception{
-        String studentNumber = this.getUsertableBean().getStudentNumber();
-        String pwd = this.getUsertableBean().getPassword();
-        String email = this.getUsertableBean().getEmail();
-        String cell_phone = this.getUsertableBean().getCellPhone();
+        String studentNumber = this.getUsertableBean().getUserAcount();
+        String pwd = this.getUsertableBean().getUserPwd();
+        String email = this.getUsertableBean().getUserEmail();
+        String cell_phone = this.getUsertableBean().getUserPhone();
 
 
-        UsertableBean user = new UsertableBean();
-        user.setStudentNumber(studentNumber);
-        user.setPassword(pwd);
-        user.setEmail(email);
-        user.setCellPhone(cell_phone);
+        TbUserEntity user = new TbUserEntity();
+        user.setUserAcount(studentNumber);
+        user.setUserPwd(pwd);
+        user.setUserEmail(email);
+        user.setUserPwd(cell_phone);
         System.out.println("studentNumber=" + studentNumber);
         System.out.println("pwd=" + pwd);
         System.out.println("email=" + email);

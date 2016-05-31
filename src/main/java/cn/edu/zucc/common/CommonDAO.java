@@ -1,8 +1,5 @@
 package cn.edu.zucc.common;
 
-import cn.edu.zucc.model.UsertableBean;
-
-import java.io.Serializable;
 import java.util.List;
 
 

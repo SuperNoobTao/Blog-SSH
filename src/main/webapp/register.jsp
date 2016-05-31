@@ -42,22 +42,22 @@
             <%--账号--%>
             <div class="am-input-group am-form-group">
                 <span class="am-input-group-label"><i class="am-icon-user am-icon-fw"></i></span>
-                <input type="text" class="am-form-field" name="usertableBean.studentNumber" placeholder="Username">
+                <input type="text" class="am-form-field" name="usertableBean.userAcount" placeholder="Username">
             </div>
             <%--密码--%>
             <div class="am-input-group am-form-group">
                 <span class="am-input-group-label"><i class="am-icon-lock am-icon-fw"></i></span>
-                <input type="text" class="am-form-field" name="usertableBean.password" placeholder="Password">
+                <input type="text" class="am-form-field" name="usertableBean.userPwd" placeholder="Password">
             </div>
             <%--邮箱--%>
             <div class="am-input-group am-form-group">
                 <span class="am-input-group-label">Email</span>
-                <input type="email" class="am-form-field" name="usertableBean.email" placeholder="Email">
+                <input type="email" class="am-form-field" name="usertableBean.userEmail" placeholder="Email">
             </div>
             <%--手机--%>
             <div class="am-input-group am-form-group">
                 <span class="am-input-group-label">Phone</span>
-                <input type="phone" class="am-form-field"  name="usertableBean.cellPhone" placeholder="cellphone" >
+                <input type="phone" class="am-form-field"  name="usertableBean.userPhone" placeholder="cellphone" >
                 <span class="am-input-group-btn">
                   <input    type="button" name="phone"  value="点击获取验证码" class="am-btn am-btn-primary am-btn-block" onclick="showtime(60)"/></span>
             </div>

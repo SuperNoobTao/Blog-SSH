@@ -1,30 +1,28 @@
 package cn.edu.zucc.dao.User;
 
 import cn.edu.zucc.common.CommonDaoImpl;
-import cn.edu.zucc.model.UsertableBean;
+import cn.edu.zucc.model.TbUserEntity;
 import org.hibernate.Query;
 import org.hibernate.Session;
-
-import java.util.List;
 
 /**
  * Created by shentao on 2016/5/21.
  */
-public class UserDaoImpl extends CommonDaoImpl<UsertableBean> implements  UserDao{
+public class UserDaoImpl extends CommonDaoImpl<TbUserEntity> implements  UserDao{
 
 
 
 
 
     @Override
-    public UsertableBean login(String username, String password) {
+    public TbUserEntity login(String uAcount, String uPwd) {
         try {
-            String hql ="from UsertableBean where studentNumber=? and password=?";
+            String hql ="from TbUserEntity where userAcount=? and userPwd=?";
             Session session = getSessionFactory().getCurrentSession();
             Query query = session.createQuery(hql);
-            query.setString(0,username);
-            query.setString(1,password);
-            return (UsertableBean) query.uniqueResult();
+            query.setString(0,uAcount);
+            query.setString(1,uPwd);
+            return (TbUserEntity) query.uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
         }
