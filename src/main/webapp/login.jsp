@@ -57,7 +57,7 @@
 
           <div class="am-cf">
             <input type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm am-fl">
-            <input type="submit" name="" value="忘记密码" class="am-btn am-btn-default am-btn-sm am-fr">
+            <a href="${pageContext.request.contextPath}/register.jsp"><input type="button" name="" value="注 册" class="am-btn am-btn-default am-btn-sm am-fr"  ></a>
           </div>
 
         </form>

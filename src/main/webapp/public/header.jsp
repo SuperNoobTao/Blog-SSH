@@ -12,7 +12,7 @@
   <div class="header">
     <div class="logo">
       <a href="${pageContext.request.contextPath}/">
-        <h1>Coselding博客</h1>
+        <h1>红茶先森的博客</h1>
       </a>
     </div>
 
@@ -40,7 +40,7 @@
               <li><a href="/WorkUpload/">作业提交系统</a></li>
               <li><a href="/uShare/">uShare</a></li>
               <li><a href="/smartor/">Smartor</a></li>
-              <li><a href="/PlaneWar/">飞机大战</a></li>
+              <li><a href="${pageContext.request.contextPath}/login.jsp">管理员</a></li>
             </ul>
           </li>
         </ul>
@@ -57,7 +57,7 @@
     <li><a class="weibo" href="http://weibo.com/u/2671168890" title="新浪微博"></a></li>
     <li><a class="wechat" href="${pageContext.request.contextPath}/public/wechat.jsp" title="微信"></a></li>
     <li><a class="email" href="mailto:1098129797@qq.com" title="邮件"></a></li>
-    <li><a class="phone" href="tel:13210135013" title="手机"></a></li>
+    <li><a class="phone" href="tel:15167195271" title="手机"></a></li>
   </ul>
-  <div class="intro">非淡泊无以明志，非宁静无以致远。</div>
+  <div class="intro">你不是人,你是天使!遇上你是我这辈子最大的狗屎运!</div>
 </div>

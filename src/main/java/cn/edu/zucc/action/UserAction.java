@@ -52,18 +52,20 @@ public class UserAction extends ActionSupport{
         String pwd = this.getUsertableBean().getPassword();
         String email = this.getUsertableBean().getEmail();
         String cell_phone = this.getUsertableBean().getCellPhone();
-        System.out.println("username=" + studentNumber);
+
+
+        UsertableBean user = new UsertableBean();
+        user.setStudentNumber(studentNumber);
+        user.setPassword(pwd);
+        user.setEmail(email);
+        user.setCellPhone(cell_phone);
+        System.out.println("studentNumber=" + studentNumber);
         System.out.println("pwd=" + pwd);
         System.out.println("email=" + email);
         System.out.println("cell_phone=" + cell_phone);
 
-        UsertableBean user = new UsertableBean();
-        user.setStudentName(studentNumber);
-        user.setPassword(pwd);
-        user.setEmail(email);
-        user.setCellPhone(cell_phone);
-
         int i = getUserService().register(user);
+        System.out.println("i="+i);
         if(i==1){
             return SUCCESS;
         }

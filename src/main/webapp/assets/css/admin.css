@@ -345,11 +345,11 @@ gallery.html css
 }
 
 .gallery-list a:hover {
-  color: #3bb4f2;
+  color: #0560bb;
 }
 
 .gallery-title {
-  margin-top: 6px;
+  margin-top: 8px;
   font-size: 1.4rem;
 }
 

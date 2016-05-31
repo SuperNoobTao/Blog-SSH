@@ -61,7 +61,7 @@
 
 
         <li><a href="admin-article-manage.jsp"><span class="am-icon-table"></span>文章模块</a></li>
-        <li><a href="admin-category-manage.jsp"><span class="am-icon-table"></span>管理模块</a></li>
+        <li><a href="admin-category-manage.jsp"><span class="am-icon-table"></span>类别模块</a></li>
         <li><a href="#"><span class="am-icon-table"></span>客户模块</a></li>
 
         <li><a href="admin-comment-manage.jsp"><span class="am-icon-table"></span> 管理留言</a></li>

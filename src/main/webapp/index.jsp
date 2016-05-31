@@ -11,7 +11,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>Coselding博客</title>
+  <title>红茶先森的博客</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <link rel="stylesheet" type="text/css" media="all" href="${pageContext.request.contextPath}/style.css" />

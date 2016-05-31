@@ -41,7 +41,7 @@ public abstract class CommonDaoImpl<T> implements CommonDAO<T> {
     public void save(T transientInstance) throws Exception
     {
         try {
-            sessionFactory.openSession().save(transientInstance);
+            sessionFactory.getCurrentSession().save(transientInstance);
         } catch (RuntimeException e) {
             throw e;
         }

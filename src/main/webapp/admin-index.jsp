@@ -15,12 +15,10 @@
   <meta name="apple-mobile-web-app-title" content="Amaze UI" />
   <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
   <link rel="stylesheet" href="assets/css/admin.css">
+
 </head>
 <body>
-<!--[if lte IE 9]>
-<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
-  以获得更好的体验！</p>
-<![endif]-->
+
 
 <header class="am-topbar am-topbar-inverse admin-header">
   <div class="am-topbar-brand">
@@ -65,7 +63,7 @@
 
 
         <li><a href="admin-article-manage.jsp"><span class="am-icon-table"></span>文章模块</a></li>
-        <li><a href="admin-category-manage.jsp"><span class="am-icon-table"></span>管理模块</a></li>
+        <li><a href="admin-category-manage.jsp"><span class="am-icon-table"></span>类别模块</a></li>
         <li><a href="#"><span class="am-icon-table"></span>客户模块</a></li>
         <li><a href="admin-comment-manage.jsp"><span class="am-icon-table"></span> 管理留言</a></li>
 
@@ -129,31 +127,7 @@
                   </ul>
                 </div>
               </td>
-            </tr>
-            <tr><td>3</td><td>詹姆斯</td><td><a href="#">开发一款业务数据软件</a></td><td><span class="am-badge am-badge-warning">+10</span></td>
-              <td>
-                <div class="am-dropdown" data-am-dropdown>
-                  <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
-                  <ul class="am-dropdown-content">
-                    <li><a href="#">1. 编辑</a></li>
-                    <li><a href="#">2. 下载</a></li>
-                    <li><a href="#">3. 删除</a></li>
-                  </ul>
-                </div>
-              </td>
-            </tr>
-            <tr><td>4</td><td>云适配</td><td><a href="#">适配所有网站</a></td><td><span class="am-badge am-badge-secondary">+50</span></td>
-              <td>
-                <div class="am-dropdown" data-am-dropdown>
-                  <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
-                  <ul class="am-dropdown-content">
-                    <li><a href="#">1. 编辑</a></li>
-                    <li><a href="#">2. 下载</a></li>
-                    <li><a href="#">3. 删除</a></li>
-                  </ul>
-                </div>
-              </td>
-            </tr>
+
             </tbody>
           </table>
         </div>

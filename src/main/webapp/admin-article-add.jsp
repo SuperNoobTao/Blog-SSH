@@ -2,9 +2,8 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+  <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html class="no-js fixed-layout">\
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,10 +22,6 @@
 
 </head>
 <body>
-<!--[if lte IE 9]>
-<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
-  以获得更好的体验！</p>
-<![endif]-->
 
 <header class="am-topbar am-topbar-inverse admin-header">
   <div class="am-topbar-brand">
@@ -59,23 +54,23 @@
   <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
     <div class="am-offcanvas-bar admin-offcanvas-bar">
       <ul class="am-list admin-sidebar-list">
-        <li><a href="admin-index.jsp"><span class="am-icon-home"></span> 首页</a></li>
+        <li><a href="admin-index.jsp"><span class="am-icon-home"></span>首页</a></li>
 
         <li class="admin-parent">
           <a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-file"></span> 用户模块 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
           <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
-            <li><a href="admin-user.jsp" class="am-cf"><span class="am-icon-check"></span> 个人资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-            <li><a href="#"><span class="am-icon-calendar"></span> 系统日志</a></li>
+            <li><a href="admin-user.jsp" class="am-cf"><span class="am-icon-check"></span>个人资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+            <li><a href="#"><span class="am-icon-calendar"></span>系统日志</a></li>
           </ul>
         </li>
 
 
         <li><a href="admin-article-manage.jsp"><span class="am-icon-table"></span>文章模块</a></li>
-        <li><a href="admin-category-manage.jsp"><span class="am-icon-table"></span>管理模块</a></li>
+        <li><a href="admin-category-manage.jsp"><span class="am-icon-table"></span>类别模块</a></li>
         <li><a href="#"><span class="am-icon-table"></span>客户模块</a></li>
-        <li><a href="admin-comment-manage.jsp"><span class="am-icon-table"></span> 管理留言</a></li>
+        <li><a href="admin-comment-manage.jsp"><span class="am-icon-table"></span>管理留言</a></li>
 
-        <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
+        <li><a href="#"><span class="am-icon-sign-out"></span>注销</a></li>
       </ul>
 
 
@@ -100,13 +95,11 @@
     </div>
 
 
+    <form action="${pageContext.request.contextPath}/manage/article_${method}.action" method="post">
 
 
 
-      <div class="am-tabs-bd">
-        <div class="am-tab-panel am-fade am-in am-active" id="tab1">
-
-
+<%--所属类别--%>
             <div class="am-g am-margin-top">
               <div class="am-u-sm-4 am-u-md-2 am-text-right">所属类别</div>
               <div class="am-u-sm-8 am-u-md-10">
@@ -121,8 +114,7 @@
             </div>
           </div>
 
-
-
+<%--类型--%>
           <div class="am-g am-margin-top">
             <div class="am-u-sm-4 am-u-md-2 am-text-right">类型</div>
             <div class="am-u-sm-8 am-u-md-10">
@@ -137,7 +129,7 @@
             </div>
           </div>
 
-
+<%--是否置顶--%>
           <div class="am-g am-margin-top">
             <div class="am-u-sm-4 am-u-md-2 am-text-right">是否置顶</div>
             <div class="am-u-sm-8 am-u-md-10">
@@ -154,6 +146,7 @@
             </div>
           </div>
 
+<%--文章标题--%>
           <div class="am-g am-margin-top">
             <div class="am-u-sm-4 am-u-md-2 am-text-right">文章标题</div>
             <div class="am-u-sm-8 am-u-md-10">
@@ -161,7 +154,7 @@
             </div>
           </div>
 
-
+<%--内容摘要--%>
           <div class="am-g am-margin-top">
             <div class="am-u-sm-4 am-u-md-2 am-text-right">内容摘要</div>
             <div class="am-u-sm-8 am-u-md-10">
@@ -169,26 +162,28 @@
             </div>
           </div>
 
-            <div class="am-g am-margin-top">
+<%--内容描述--%>
+
               <div class="am-u-sm-4 am-u-md-2 am-text-right">内容描述</div>
 
+
             <div class="am-u-sm-8 am-u-md-10">
-            <textarea      name="content" id="content">${fn:escapeXml(article.content)}</textarea>
-            </form>
+              <td><textarea      name="content" id="content">${fn:escapeXml(article.content)}</textarea></td>
           </div>
-            </div>
 
 
 
 
-      </div>
-    </div>
+
+
 
     <div class="am-margin">
       <button type="button" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
       <button type="button" class="am-btn am-btn-primary am-btn-xs">放弃保存</button>
     </div>
+    </form>
   </div>
+
 
   <footer class="admin-content-footer">
     <hr>

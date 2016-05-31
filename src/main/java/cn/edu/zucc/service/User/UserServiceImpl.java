@@ -51,11 +51,13 @@ public class UserServiceImpl implements UserService{
     @Override
     public int register(UsertableBean usertableBean) throws Exception {
         String studentNumber = usertableBean.getStudentNumber();
+        System.out.println("studentNumber="+studentNumber);
         List list = getUserDao().findByqQuery("from UsertableBean where studentNumber='"+studentNumber+"'");
-        if(list == null){
+        if(list.isEmpty()){
         getUserDao().save(usertableBean);
             return 1;
         }
+        else
             return -1;
 
     }

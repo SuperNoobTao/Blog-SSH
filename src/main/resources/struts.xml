@@ -8,7 +8,7 @@
 
         <package name="cn.edu.zucc.action" extends="struts-default">
                 <action name="UserAction_login" class="cn.edu.zucc.action.UserAction" method="login">
-                        <result name="success">/showuser.jsp</result>
+                        <result name="success">/admin-index.jsp</result>
                         <result name="error">/login.jsp</result>
                 </action>
                 <action name="UserAction_register" class="cn.edu.zucc.action.UserAction" method="register">
