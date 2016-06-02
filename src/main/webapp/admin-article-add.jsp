@@ -163,17 +163,13 @@
           </div>
 
 <%--内容描述--%>
-
+  <div class="am-g am-margin-top">
               <div class="am-u-sm-4 am-u-md-2 am-text-right">内容描述</div>
-
-
             <div class="am-u-sm-8 am-u-md-10">
               <td><textarea      name="content" id="content">${fn:escapeXml(article.content)}</textarea></td>
           </div>
-
-
-
-
+    </div>
+  </div>
 
 
 

@@ -38,34 +38,37 @@ public abstract class CommonDaoImpl<T> implements CommonDAO<T> {
 
     //对表的操作（增删改查）
     //保存
-    public void save(T transientInstance) throws Exception
+    public boolean save(T transientInstance) throws Exception
     {
         try {
             sessionFactory.getCurrentSession().save(transientInstance);
+            return true;
         } catch (RuntimeException e) {
-            throw e;
+           return false;
         }
     }
 
     //删除
-    public void delete(T persistentInstance) throws Exception
+    public boolean delete(T persistentInstance) throws Exception
     {
         try {
             sessionFactory.getCurrentSession().delete(persistentInstance);
+            return true;
         } catch (RuntimeException e) {
-            throw e;
+            return  false;
         }
     }
 
 
     //更新
-    public void update(T instance) throws Exception
+    public boolean update(T instance) throws Exception
     {
         try {
             sessionFactory.getCurrentSession().saveOrUpdate(instance);
+            return true;
         } catch (RuntimeException e) {
             // TODO: handle exception
-            throw e;
+            return false;
         }
     }
 

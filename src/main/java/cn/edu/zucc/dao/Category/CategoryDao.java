@@ -12,13 +12,13 @@ import java.util.List;
 public interface CategoryDao {
 
     //增
-    public  void  save(TbCategoryEntity tbCategoryEntity)  throws Exception;
+    public  boolean  save(TbCategoryEntity tbCategoryEntity)  throws Exception;
 
     //删
-    public void delete(TbCategoryEntity tbCategoryEntity)  throws Exception;
+    public boolean delete(TbCategoryEntity tbCategoryEntity)  throws Exception;
 
     //改
-    public void update(TbCategoryEntity tbCategoryEntity)  throws Exception;
+    public boolean update(TbCategoryEntity tbCategoryEntity)  throws Exception;
 
 
     //查总数
@@ -27,13 +27,11 @@ public interface CategoryDao {
     //查所有
     public List<TbCategoryEntity> findAll();
 
-    //查分页
-
 
     //查单个
     public TbCategoryEntity findById(Integer id) throws Exception;
 
-    public TbCategoryEntity findByName(String name) throws Exception;
+    public List<TbCategoryEntity> findByqQuery(String hql) throws Exception;
 
 
 

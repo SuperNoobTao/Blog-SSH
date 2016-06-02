@@ -24,6 +24,7 @@ public class TbUserEntity {
     private String userRemark;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     public int getUserId() {
         return userId;

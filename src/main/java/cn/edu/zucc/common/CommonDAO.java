@@ -9,11 +9,11 @@ import java.util.List;
 public interface CommonDAO<T> {
 
 
-    public void save(T transientInstance) throws Exception;
+    public boolean save(T transientInstance) throws Exception;
 
-    public void delete(T persistentInstance) throws Exception;
+    public boolean delete(T persistentInstance) throws Exception;
 
-    public  void update(T instance) throws Exception;
+    public  boolean update(T instance) throws Exception;
 
     public int updateByQuery(String hql);
 

@@ -27,6 +27,7 @@ public class TbArticleEntity {
     private Integer categoryId;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "article_id")
     public int getArticleId() {
         return articleId;

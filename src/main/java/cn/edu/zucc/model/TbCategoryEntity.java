@@ -17,6 +17,7 @@ public class TbCategoryEntity {
     private String categoryRemark;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "category_id")
     public int getCategoryId() {
         return categoryId;

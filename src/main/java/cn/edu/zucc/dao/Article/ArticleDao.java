@@ -13,13 +13,13 @@ import java.util.List;
 public interface ArticleDao {
 
     //增
-    public  void  save(TbArticleEntity tbArticleEntity)  throws Exception;
+    public  boolean  save(TbArticleEntity tbArticleEntity)  throws Exception;
 
     //删
-    public void delete(TbArticleEntity tbArticleEntity)  throws Exception;
+    public boolean delete(TbArticleEntity tbArticleEntity)  throws Exception;
 
     //改
-    public void update(TbArticleEntity tbArticleEntity)  throws Exception;
+    public boolean  update(TbArticleEntity tbArticleEntity)  throws Exception;
 
     public void updateArticleInfo(TbArticleEntity tbArticleEntity) throws Exception;
 

@@ -14,6 +14,7 @@ public class TbGuestEntity {
     private Integer guestRss;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "guest_id")
     public int getGuestId() {
         return guestId;

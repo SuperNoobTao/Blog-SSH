@@ -54,7 +54,8 @@ public class UserServiceImpl implements UserService{
         System.out.println("studentNumber="+uAcount);
         List list = getUserDao().findByqQuery("from TbUserEntity where userAcount='"+uAcount+"'");
         if(list.isEmpty()){
-        getUserDao().save(usertableBean);
+        getUserDao().update(usertableBean);
+        System.out.println("自动生成的主键ID"+usertableBean.getUserId());
             return 1;
         }
         else

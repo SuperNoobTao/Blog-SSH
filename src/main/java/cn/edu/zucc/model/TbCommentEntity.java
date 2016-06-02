@@ -19,6 +19,7 @@ public class TbCommentEntity {
     private String commetRemark;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "commet_id")
     public int getCommetId() {
         return commetId;
