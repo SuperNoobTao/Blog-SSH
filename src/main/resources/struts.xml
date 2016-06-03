@@ -6,7 +6,7 @@
 
         <struts>
 
-        <package name="cn.edu.zucc.action" extends="struts-default">
+        <package name="cn.edu.zucc.action.UserAction" extends="struts-default">
                 <action name="UserAction_login" class="cn.edu.zucc.action.UserAction" method="login">
                         <result name="success">/admin-index.jsp</result>
                         <result name="error">/login.jsp</result>
@@ -15,10 +15,21 @@
                         <result name="success">/login.jsp</result>
                         <result name="error">/register.jsp</result>
                 </action>
-
-
-
-
-
         </package>
+
+
+        <package name="cn.edu.zucc.action.ArticleAction" extends="struts-default">
+                <action name="article_addui" class="cn.edu.zucc.action.ArticleAction" method="addui">
+                        <result name="success">/admin-article-add.jsp</result>
+
+                </action>
+
+                <action name="article_add" class="cn.edu.zucc.action.ArticleAction" method="add">
+                        <result name="message">/message.jsp</result>
+
+                </action>
+        </package>
+
+
+
 </struts>

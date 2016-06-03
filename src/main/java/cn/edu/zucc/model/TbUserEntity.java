@@ -23,6 +23,26 @@ public class TbUserEntity {
     private String userType;
     private String userRemark;
 
+
+    @Override
+    public String toString() {
+        return "TbUserEntity{" +
+                "userId=" + userId +
+                ", userAcount='" + userAcount + '\'' +
+                ", userPwd='" + userPwd + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userSex='" + userSex + '\'' +
+                ", userPhone='" + userPhone + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userCdate=" + userCdate +
+                ", userMdate=" + userMdate +
+                ", userRdate=" + userRdate +
+                ", userState='" + userState + '\'' +
+                ", userType='" + userType + '\'' +
+                ", userRemark='" + userRemark + '\'' +
+                '}';
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")

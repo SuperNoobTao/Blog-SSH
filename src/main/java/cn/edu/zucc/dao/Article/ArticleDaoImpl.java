@@ -13,14 +13,23 @@ import java.sql.SQLException;
  * Created by shentao on 2016/5/31.
  */
 public class ArticleDaoImpl  extends CommonDaoImpl<TbArticleEntity> implements ArticleDao {
+
+
     @Override
     public void updateArticleInfo(TbArticleEntity tbArticleEntity) throws Exception {
 
-        String hql ="update TbArticleEntity set articleLikes=? , articleMdate=?,articleLooks=?,articleStaticUrl=? where articleId=?";
+        System.out.println("articleId="+tbArticleEntity.getArticleId());
+        System.out.println("articleLikes="+tbArticleEntity.getArticleLikes());
+        System.out.println("articleCdate="+tbArticleEntity.getArticleCdate());
+        System.out.println("articleLooks="+tbArticleEntity.getArticleLooks());
+        System.out.println("articleStaticUrl="+tbArticleEntity.getArticleStaticUrl());
+
+
+        String hql ="update TbArticleEntity set articleLikes=? , articleCdate=?,articleLooks=?,articleStaticUrl=? where articleId=?";
         Session session = getSessionFactory().getCurrentSession();
         Query query = session.createQuery(hql);
         query.setInteger(0,tbArticleEntity.getArticleLikes());
-        query.setTimestamp(1,tbArticleEntity.getArticleMdate());
+        query.setTimestamp(1,tbArticleEntity.getArticleCdate());
         query.setInteger(2,tbArticleEntity.getArticleLooks());
         query.setString(3,tbArticleEntity.getArticleStaticUrl());
         query.setInteger(4,tbArticleEntity.getArticleId());
@@ -36,4 +45,9 @@ public class ArticleDaoImpl  extends CommonDaoImpl<TbArticleEntity> implements A
         return (TbArticleEntity) query.uniqueResult();
 
     }
+
+
+
+
+
 }

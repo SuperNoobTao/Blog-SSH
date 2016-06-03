@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Amaze UI Admin index Examples</title>
+  <title>红茶先森的博客后台</title>
   <meta name="description" content="这是一个 index 页面">
   <meta name="keywords" content="index">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,16 +60,12 @@
             <li><a href="#"><span class="am-icon-calendar"></span> 系统日志</a></li>
           </ul>
         </li>
-
-
         <li><a href="admin-article-manage.jsp"><span class="am-icon-table"></span>文章模块</a></li>
         <li><a href="admin-category-manage.jsp"><span class="am-icon-table"></span>类别模块</a></li>
         <li><a href="#"><span class="am-icon-table"></span>客户模块</a></li>
         <li><a href="admin-comment-manage.jsp"><span class="am-icon-table"></span> 管理留言</a></li>
-
         <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
       </ul>
-
 
       <div class="am-panel am-panel-default admin-sidebar-panel">
         <div class="am-panel-bd">
@@ -85,7 +81,7 @@
   <div class="admin-content">
     <div class="admin-content-body">
       <div class="am-cf am-padding">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">首页</strong> / <small>一些常用模块</small></div>
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">欢迎您来到博客后台</strong> ---- <small>${user.userAcount}---${user.userName}</small></div>
       </div>
 
       <ul class="am-avg-sm-1 am-avg-md-4 am-margin am-padding am-text-center admin-content-list ">

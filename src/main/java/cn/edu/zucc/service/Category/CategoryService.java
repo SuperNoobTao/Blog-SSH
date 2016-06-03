@@ -10,7 +10,7 @@ import java.util.List;
 public interface CategoryService {
 
     //得到所有类别
-    public List<TbCategoryEntity> getAllCategories() throws Exception;
+    public List<TbCategoryEntity> getAllCategories();
 
 
     //添加类别

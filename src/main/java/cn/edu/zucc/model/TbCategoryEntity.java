@@ -16,6 +16,19 @@ public class TbCategoryEntity {
     private Timestamp categoryRdate;
     private String categoryRemark;
 
+
+    @Override
+    public String toString() {
+        return "TbCategoryEntity{" +
+                "categoryId=" + categoryId +
+                ", categoryName='" + categoryName + '\'' +
+                ", categoryCdate=" + categoryCdate +
+                ", categoryMdate=" + categoryMdate +
+                ", categoryRdate=" + categoryRdate +
+                ", categoryRemark='" + categoryRemark + '\'' +
+                '}';
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "category_id")
@@ -38,7 +51,7 @@ public class TbCategoryEntity {
     }
 
     @Basic
-    @Column(name = "category-cdate")
+    @Column(name = "category_cdate")
     public Timestamp getCategoryCdate() {
         return categoryCdate;
     }
@@ -68,7 +81,7 @@ public class TbCategoryEntity {
     }
 
     @Basic
-    @Column(name = "category-remark")
+    @Column(name = "category_remark")
     public String getCategoryRemark() {
         return categoryRemark;
     }

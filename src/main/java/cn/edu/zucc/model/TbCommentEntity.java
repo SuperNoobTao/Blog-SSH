@@ -18,6 +18,21 @@ public class TbCommentEntity {
     private Timestamp commetRdate;
     private String commetRemark;
 
+
+    @Override
+    public String toString() {
+        return "TbCommentEntity{" +
+                "commetId=" + commetId +
+                ", commetContent='" + commetContent + '\'' +
+                ", guestId=" + guestId +
+                ", articleId=" + articleId +
+                ", commetCdate=" + commetCdate +
+                ", commetMdate=" + commetMdate +
+                ", commetRdate=" + commetRdate +
+                ", commetRemark='" + commetRemark + '\'' +
+                '}';
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "commet_id")

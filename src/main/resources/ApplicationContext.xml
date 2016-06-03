@@ -42,7 +42,7 @@
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">
-					org.hibernate.dialect.MySQLDialect
+					org.hibernate.dialect.MySQL5Dialect
 				</prop>
 
 				 <prop key="hibernate.show_sql">true</prop>
@@ -103,11 +103,50 @@
 	<bean id="userService" class="cn.edu.zucc.service.User.UserServiceImpl" />
 	<bean id="usertableBean" class="cn.edu.zucc.model.TbUserEntity" />
 
+	<!--在articleaction中注入service-->
+	<!--在articleaction中注入been-->
+	<bean id="ArticleAction" class="cn.edu.zucc.action.ArticleAction"  >
+		<property name="articleService" ref="articleService" ></property>
+		<property name="categoryService" ref="categoryService"></property>
+		<property name="tbArticleEntity" ref="tbArticleEntity" ></property>
+		<property name="tbCategoryEntity" ref="tbCategoryEntity"></property>
+	</bean>
+	<bean id="articleService" class="cn.edu.zucc.service.Article.ArticleServiceImpl" />
+	<bean id="categoryService" class="cn.edu.zucc.service.Category.CategoryServiceImpl" />
+	<bean id="tbArticleEntity" class="cn.edu.zucc.model.TbArticleEntity" />
+	<bean id="tbCategoryEntity" class="cn.edu.zucc.model.TbCategoryEntity" />
+
+
+
+
 	<!--在userServiceImpl中注入userDao-->
 	<bean id="UserService" class="cn.edu.zucc.service.User.UserServiceImpl"  >
 		<property name="userDao" ref="userDao" ></property>
 	</bean>
 	<bean id="userDao" class="cn.edu.zucc.dao.User.UserDaoImpl" />
+
+
+	<!--在articleServiceImpl中注入articleDao-->
+	<bean id="ArticleService" class="cn.edu.zucc.service.Article.ArticleServiceImpl"  >
+		<property name="articleDao" ref="articleDao" ></property>
+		<property name="categoryDao" ref="categoryDao" ></property>
+	</bean>
+	<bean id="articleDao" class="cn.edu.zucc.dao.Article.ArticleDaoImpl" />
+
+
+
+
+	<!--在categoryServiceImpl中注入categoryDao-->
+	<bean id="CategoryService" class="cn.edu.zucc.service.Category.CategoryServiceImpl"  >
+		<property name="categoryDao" ref="categoryDao" ></property>
+	</bean>
+	<bean id="categoryDao" class="cn.edu.zucc.dao.Category.CategoryDaoImpl" />
+
+
+
+
+
+
 
 
 

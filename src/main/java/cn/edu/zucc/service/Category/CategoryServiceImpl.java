@@ -11,12 +11,24 @@ import java.util.List;
  */
 public class CategoryServiceImpl implements CategoryService{
 
-    private CategoryDao categoryDao = new CategoryDaoImpl();
+
+    private CategoryDao categoryDao;
+
+
+    public CategoryDao getCategoryDao() {
+        return categoryDao;
+    }
+
+    public void setCategoryDao(CategoryDao categoryDao) {
+        this.categoryDao = categoryDao;
+    }
+
+
 
     //得到所有类别
     @Override
-    public List<TbCategoryEntity> getAllCategories() throws Exception {
-        return categoryDao.findAll();
+    public List<TbCategoryEntity> getAllCategories()  {
+        return getCategoryDao().findAll();
     }
     //添加类别
     @Override

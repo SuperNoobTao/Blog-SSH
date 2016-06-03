@@ -1,6 +1,7 @@
 package cn.edu.zucc.dao.Article;
 
 import cn.edu.zucc.model.TbArticleEntity;
+import cn.edu.zucc.model.TbCategoryEntity;
 import cn.edu.zucc.model.TbUserEntity;
 import jdk.nashorn.internal.runtime.ECMAException;
 
@@ -15,6 +16,7 @@ public interface ArticleDao {
     //增
     public  boolean  save(TbArticleEntity tbArticleEntity)  throws Exception;
 
+
     //删
     public boolean delete(TbArticleEntity tbArticleEntity)  throws Exception;
 
@@ -24,6 +26,9 @@ public interface ArticleDao {
     public void updateArticleInfo(TbArticleEntity tbArticleEntity) throws Exception;
 
     //查总数
+
+    //查所有
+    public List<TbArticleEntity> findAll();
 
 
     //查分页

@@ -13,6 +13,16 @@ public class TbGuestEntity {
     private String guestEmail;
     private Integer guestRss;
 
+    @Override
+    public String toString() {
+        return "TbGuestEntity{" +
+                "guestId=" + guestId +
+                ", guestName='" + guestName + '\'' +
+                ", guestEmail='" + guestEmail + '\'' +
+                ", guestRss=" + guestRss +
+                '}';
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "guest_id")

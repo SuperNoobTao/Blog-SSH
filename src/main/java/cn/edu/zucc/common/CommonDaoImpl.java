@@ -1,10 +1,12 @@
 package cn.edu.zucc.common;
 
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
 
 import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.List;
 
 /**
@@ -12,8 +14,8 @@ import java.util.List;
  */
 public abstract class CommonDaoImpl<T> implements CommonDAO<T> {
     private SessionFactory sessionFactory;//加载数据库连接（使用spring实现加载）
-    private Class<T> persistentClass;
 
+    private Class<T> entityClass;
     //sessionFactory的get和set方法。
     public SessionFactory getSessionFactory() {
         return sessionFactory;
@@ -26,13 +28,11 @@ public abstract class CommonDaoImpl<T> implements CommonDAO<T> {
     //用构造方法处理Class<T>以下为固定模式
     public CommonDaoImpl()
     {
-        this.persistentClass = (Class<T>) ((ParameterizedType) getClass()
-                .getGenericSuperclass()).getActualTypeArguments()[0];
+        Type type=getClass().getGenericSuperclass();
+        entityClass=(Class<T>) ((ParameterizedType)type).getActualTypeArguments()[0];
     }
 
-    public Class<T> getPersistentClass() {
-        return persistentClass;
-    }
+
 
 
 
@@ -41,7 +41,7 @@ public abstract class CommonDaoImpl<T> implements CommonDAO<T> {
     public boolean save(T transientInstance) throws Exception
     {
         try {
-            sessionFactory.getCurrentSession().save(transientInstance);
+            getSessionFactory().getCurrentSession().save(transientInstance);
             return true;
         } catch (RuntimeException e) {
            return false;
@@ -52,7 +52,7 @@ public abstract class CommonDaoImpl<T> implements CommonDAO<T> {
     public boolean delete(T persistentInstance) throws Exception
     {
         try {
-            sessionFactory.getCurrentSession().delete(persistentInstance);
+            getSessionFactory().getCurrentSession().delete(persistentInstance);
             return true;
         } catch (RuntimeException e) {
             return  false;
@@ -64,7 +64,7 @@ public abstract class CommonDaoImpl<T> implements CommonDAO<T> {
     public boolean update(T instance) throws Exception
     {
         try {
-            sessionFactory.getCurrentSession().saveOrUpdate(instance);
+            getSessionFactory().getCurrentSession().saveOrUpdate(instance);
             return true;
         } catch (RuntimeException e) {
             // TODO: handle exception
@@ -78,7 +78,7 @@ public abstract class CommonDaoImpl<T> implements CommonDAO<T> {
     {
         int k=0;
         try {
-            k=sessionFactory.getCurrentSession().createQuery(hql).executeUpdate();
+            k=getSessionFactory().getCurrentSession().createQuery(hql).executeUpdate();
         } catch (RuntimeException e) {
             // TODO: handle exception
             throw e;
@@ -91,7 +91,7 @@ public abstract class CommonDaoImpl<T> implements CommonDAO<T> {
     {
 
         try {
-            T instance = (T) sessionFactory.getCurrentSession().get(getPersistentClass(), id);
+            T instance = (T) getSessionFactory().getCurrentSession().get(entityClass, id);
             return instance;
         } catch (RuntimeException e) {
             // TODO: handle exception
@@ -103,7 +103,7 @@ public abstract class CommonDaoImpl<T> implements CommonDAO<T> {
     public List<T> findByqQuery(String hql)
     {
         try {
-            return sessionFactory.getCurrentSession().createQuery(hql).list();
+            return getSessionFactory().getCurrentSession().createQuery(hql).list();
         } catch (RuntimeException e) {
             // TODO: handle exception
             throw e;
@@ -113,23 +113,15 @@ public abstract class CommonDaoImpl<T> implements CommonDAO<T> {
     //查找所有表里的所有内容
     public List<T> findAll()
     {
+        List<T> list=null;
         try {
-            return findByCriteria();//调用下面的findByCriteria方法
-        } catch (RuntimeException e) {
-            // TODO: handle exception
-            throw e;
+        list=getSessionFactory().getCurrentSession().createCriteria(entityClass).list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
         }
+        return list;
     }
 
-    //查找表里的所有内容并返回
-    protected List<T> findByCriteria(Criterion... criterion) {
-        Criteria crit = sessionFactory.getCurrentSession().createCriteria(
-                getPersistentClass());
-        for (Criterion c : criterion) {
-            crit.add(c);
-        }
-        return crit.list();
-    }
 
     //jQuery Easyui Datagrid需要的方法，根据传进来的hql，当前页数，页面长度返回数据列
     public List<T> queryForPage(String hql, int offset, int length) {

@@ -16,6 +16,14 @@
       <scope>test</scope>
     </dependency>
 
+   <!--Base64支持的包-->
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.10</version>
+    </dependency>
+
+
     <!--C3P0配置-->
     <dependency>
       <groupId>org.hibernate</groupId>

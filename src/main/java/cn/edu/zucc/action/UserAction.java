@@ -4,6 +4,7 @@ import cn.edu.zucc.model.TbUserEntity;
 import cn.edu.zucc.service.User.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import org.springframework.ui.Model;
 
 /**
  * Created by shentao on 2016/5/22.
@@ -35,11 +36,13 @@ public class UserAction extends ActionSupport{
         String pwd = this.getUsertableBean().getUserPwd();
         System.out.println("username=" + studentNumber);
         System.out.println("pwd=" + pwd);
+        getUserService().getUserList();
+
         usertableBean = getUserService().login(studentNumber,pwd);
 
         if (usertableBean!=null) {
-            ActionContext.getContext().getSession().put("username",
-                    this.getUsertableBean().getUserAcount());
+            ActionContext.getContext().getSession().put("user", usertableBean);
+            System.out.println(usertableBean);
             return SUCCESS;
         }
         return ERROR;
