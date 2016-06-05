@@ -11,7 +11,7 @@ public class TbGuestEntity {
     private int guestId;
     private String guestName;
     private String guestEmail;
-    private Integer guestRss;
+    private int guestRss;
 
     @Override
     public String toString() {
@@ -56,35 +56,13 @@ public class TbGuestEntity {
 
     @Basic
     @Column(name = "guest_rss")
-    public Integer getGuestRss() {
+    public int getGuestRss() {
         return guestRss;
     }
 
-    public void setGuestRss(Integer guestRss) {
+    public void setGuestRss(int guestRss) {
         this.guestRss = guestRss;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        TbGuestEntity that = (TbGuestEntity) o;
-
-        if (guestId != that.guestId) return false;
-        if (guestName != null ? !guestName.equals(that.guestName) : that.guestName != null) return false;
-        if (guestEmail != null ? !guestEmail.equals(that.guestEmail) : that.guestEmail != null) return false;
-        if (guestRss != null ? !guestRss.equals(that.guestRss) : that.guestRss != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = guestId;
-        result = 31 * result + (guestName != null ? guestName.hashCode() : 0);
-        result = 31 * result + (guestEmail != null ? guestEmail.hashCode() : 0);
-        result = 31 * result + (guestRss != null ? guestRss.hashCode() : 0);
-        return result;
-    }
 }

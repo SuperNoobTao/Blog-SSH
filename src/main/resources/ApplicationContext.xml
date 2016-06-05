@@ -116,6 +116,11 @@
 	<bean id="tbArticleEntity" class="cn.edu.zucc.model.TbArticleEntity" />
 	<bean id="tbCategoryEntity" class="cn.edu.zucc.model.TbCategoryEntity" />
 
+	<!--在indexaction中注入service-->
+	<bean id="IndexAction" class="cn.edu.zucc.action.IndexAction"  >
+		<property name="articleService" ref="articleService" ></property>
+	</bean>
+
 
 
 

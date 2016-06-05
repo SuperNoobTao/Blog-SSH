@@ -27,20 +27,23 @@ public class CategoryServiceImpl implements CategoryService{
 
     //得到所有类别
     @Override
-    public List<TbCategoryEntity> getAllCategories()  {
+    public List<TbCategoryEntity> getAllCategories() throws Exception {
         return getCategoryDao().findAll();
     }
+
+
     //添加类别
     @Override
     public boolean addCategory(TbCategoryEntity tbCategoryEntity) throws Exception {
         String categoryName = tbCategoryEntity.getCategoryName();
         System.out.println("categoryName="+categoryName);
-        List list = categoryDao.findByqQuery("from TbCategoryEntity where categoryName='"+categoryName+"'");
-        if(list.isEmpty()){
-        return categoryDao.save(tbCategoryEntity);
+            TbCategoryEntity temp = categoryDao.findByName(categoryName);
+        if(temp != null){
+            return false;
         }
-        return false;
+            return categoryDao.save(tbCategoryEntity);
     }
+
     //删除类别
     @Override
     public boolean deleteCategory(TbCategoryEntity tbCategoryEntity) throws Exception {
@@ -51,10 +54,10 @@ public class CategoryServiceImpl implements CategoryService{
     public TbCategoryEntity queryCategory(Integer id) throws Exception {
         return categoryDao.findById(id);
     }
-    //查询指定类别 byquery
+    //查询指定类别 name
     @Override
-    public List<TbCategoryEntity> findByqQuery(String hql) throws Exception {
-        return categoryDao.findByqQuery(hql);
+    public TbCategoryEntity findByName(String name) throws Exception {
+        return categoryDao.findByName(name);
     }
     //更新类别
     @Override

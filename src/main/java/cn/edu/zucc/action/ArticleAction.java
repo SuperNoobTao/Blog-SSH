@@ -88,8 +88,8 @@ public class ArticleAction extends ActionSupport {
 
         TbArticleEntity article = initAddArticle();
 
-        article.setUserId(32);
-        article.setArticleAuthor("st1");
+        article.setUserId(user.getUserId());
+        article.setArticleAuthor(user.getUserName());
         System.out.println("action 中articleLikes="+article.getArticleLikes());
         System.out.println("action 中articleLooked="+article.getArticleLooks());
         System.out.println("action 中articleTitle="+article.getArticleTitle());

@@ -11,8 +11,8 @@ import java.sql.Timestamp;
 public class TbCommentEntity {
     private int commetId;
     private String commetContent;
-    private Integer guestId;
-    private Integer articleId;
+    private int guestId;
+    private int articleId;
     private Timestamp commetCdate;
     private Timestamp commetMdate;
     private Timestamp commetRdate;
@@ -56,21 +56,21 @@ public class TbCommentEntity {
 
     @Basic
     @Column(name = "guest_id")
-    public Integer getGuestId() {
+    public int getGuestId() {
         return guestId;
     }
 
-    public void setGuestId(Integer guestId) {
+    public void setGuestId(int guestId) {
         this.guestId = guestId;
     }
 
     @Basic
     @Column(name = "article_id")
-    public Integer getArticleId() {
+    public int getArticleId() {
         return articleId;
     }
 
-    public void setArticleId(Integer articleId) {
+    public void setArticleId(int articleId) {
         this.articleId = articleId;
     }
 
@@ -114,36 +114,5 @@ public class TbCommentEntity {
         this.commetRemark = commetRemark;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        TbCommentEntity that = (TbCommentEntity) o;
-
-        if (commetId != that.commetId) return false;
-        if (commetContent != null ? !commetContent.equals(that.commetContent) : that.commetContent != null)
-            return false;
-        if (guestId != null ? !guestId.equals(that.guestId) : that.guestId != null) return false;
-        if (articleId != null ? !articleId.equals(that.articleId) : that.articleId != null) return false;
-        if (commetCdate != null ? !commetCdate.equals(that.commetCdate) : that.commetCdate != null) return false;
-        if (commetMdate != null ? !commetMdate.equals(that.commetMdate) : that.commetMdate != null) return false;
-        if (commetRdate != null ? !commetRdate.equals(that.commetRdate) : that.commetRdate != null) return false;
-        if (commetRemark != null ? !commetRemark.equals(that.commetRemark) : that.commetRemark != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = commetId;
-        result = 31 * result + (commetContent != null ? commetContent.hashCode() : 0);
-        result = 31 * result + (guestId != null ? guestId.hashCode() : 0);
-        result = 31 * result + (articleId != null ? articleId.hashCode() : 0);
-        result = 31 * result + (commetCdate != null ? commetCdate.hashCode() : 0);
-        result = 31 * result + (commetMdate != null ? commetMdate.hashCode() : 0);
-        result = 31 * result + (commetRdate != null ? commetRdate.hashCode() : 0);
-        result = 31 * result + (commetRemark != null ? commetRemark.hashCode() : 0);
-        return result;
-    }
 }

@@ -32,4 +32,20 @@
 
 
 
+        <package name="cn.edu.zucc.action.IndexAction"  extends="struts-default">
+                <!-- 默认Action跳转到主页 -->
+                <default-action-ref name="index"></default-action-ref>
+                <!-- 主页 -->
+                <action name="index" class="cn.edu.zucc.action.IndexAction" >
+                        <result>/blog_index.jsp</result>
+
+                </action>
+
+
+        </package>
+
+
+
+
+
 </struts>

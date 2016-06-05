@@ -10,7 +10,7 @@ import java.util.List;
 public interface CategoryService {
 
     //得到所有类别
-    public List<TbCategoryEntity> getAllCategories();
+    public List<TbCategoryEntity> getAllCategories() throws Exception;
 
 
     //添加类别
@@ -22,7 +22,7 @@ public interface CategoryService {
     //查询指定类别
     public TbCategoryEntity queryCategory(Integer id) throws Exception;
 
-    public List<TbCategoryEntity> findByqQuery(String hql) throws Exception;
+    public TbCategoryEntity findByName(String hql) throws Exception;
 
     //更新类别
     public boolean updateCategory(TbCategoryEntity tbCategoryEntity)  throws Exception;

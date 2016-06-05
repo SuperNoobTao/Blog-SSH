@@ -104,6 +104,7 @@ public abstract class CommonDaoImpl<T> implements CommonDAO<T> {
     {
         try {
             return getSessionFactory().getCurrentSession().createQuery(hql).list();
+
         } catch (RuntimeException e) {
             // TODO: handle exception
             throw e;

@@ -21,17 +21,23 @@ public interface CategoryDao {
     public boolean update(TbCategoryEntity tbCategoryEntity)  throws Exception;
 
 
-    //查总数
-    public  long getCount() throws Exception;
-
-    //查所有
-    public List<TbCategoryEntity> findAll();
-
-
     //查单个
     public TbCategoryEntity findById(Integer id) throws Exception;
 
-    public List<TbCategoryEntity> findByqQuery(String hql) throws Exception;
+
+    public TbCategoryEntity findByName(String name) throws Exception;
+
+
+    //查所有
+    public List<TbCategoryEntity> findAll() throws Exception;
+
+
+    //查总数
+    public  long getCount() throws Exception;
+
+
+
+
 
 
 
