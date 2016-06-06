@@ -1,15 +1,17 @@
 package cn.edu.zucc.dao.Article;
 
+import cn.edu.zucc.common.CommonDAO;
 import cn.edu.zucc.model.*;
 import jdk.nashorn.internal.runtime.ECMAException;
 
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
  * Created by shentao on 2016/5/31.
  */
-public interface ArticleDao {
+public interface ArticleDao{
 
     //增
     public  boolean  save(TbArticleEntity tbArticleEntity)  throws Exception;
@@ -45,6 +47,11 @@ public interface ArticleDao {
 
     public List<ToparticlesEntity> findAllToparticle();
 
-    public List<ArticlesEntity> findAllArticles();
+    //查分页
+    public List<ArticlesEntity> findArticles(int articleId);
+    //查next
+    public List<ArticlesEntity> findNextArticle(Timestamp Cdate);
+    //查last
+    public List<ArticlesEntity> findLastArticle(Timestamp Cdate);
 
 }

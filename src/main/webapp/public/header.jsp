@@ -59,5 +59,5 @@
     <li><a class="email" href="mailto:1098129797@qq.com" title="邮件"></a></li>
     <li><a class="phone" href="tel:15167195271" title="手机"></a></li>
   </ul>
-  <div class="intro">你不是人,你是天使!遇上你是我这辈子最大的狗屎运!</div>
+  <div class="intro">你不是人,你是天使!遇上你是我这辈子最大的狗屎运。</div>
 </div>

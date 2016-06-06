@@ -30,6 +30,9 @@ public class TemplateUtils {
     //向ftl模版中的数据替换
     public static  boolean parserTemplate(String templateDir, String ftlPath, Map<String, Object> map, OutputStream os) {
         try {
+            System.out.println("向ftl模版中的数据替换"+templateDir);
+            System.out.println("向ftl模版中的数据替换"+ftlPath);
+
             Template template = getConfiguration(templateDir).getTemplate(ftlPath, "UTF-8");
             template.process(map, new OutputStreamWriter(os, "UTF-8"));
             return true;

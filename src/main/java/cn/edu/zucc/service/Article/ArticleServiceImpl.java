@@ -127,14 +127,22 @@ public class ArticleServiceImpl implements ArticleService{
         return articleDao.findByqQuery(hql,i);
     }
 
+
+
+
+    //得到freemarker模版文件所需参数
     @Override
     public Map<String, Object> getTemplateParams(int artid, String contextPath, boolean isNew) throws Exception {
-
+        System.out.println("进入articleServiceImpl中");
+        System.out.println("artid="+artid);
         //要看的文章
-        List<ArticlesEntity> articles = articleDao.findAllArticles();
+        List<ArticlesEntity> articles = getArticleDao().findArticles(artid);
+        System.out.println("articleServiceImpl中的"+articles.get(0).getArticleId());
+        System.out.println("articleServiceImpl中的"+articles.get(0).getArticleTitle());
+        System.out.println("articleServiceImpl中的"+articles.get(0).getArticleLikes());
+
         if (articles.size() <= 0)
             return null;
-
 
         //最新三篇文章
         List<LastarticleEntity> lastArticles = null;
@@ -144,13 +152,44 @@ public class ArticleServiceImpl implements ArticleService{
         List<TbCategoryEntity> categories = null;
         categories = categoryDao.findAll();
 
+        //下一篇
+        ArticlesEntity next = null;
+        List<ArticlesEntity> nextArticles = articleDao.findNextArticle(articles.get(0).getArticleCdate());
+        if (nextArticles == null || nextArticles.size() <= 0) {
+            next = new ArticlesEntity();
+            next.setArticleStaticUrl("#");
+            next.setArticleTitle("这是最后一篇了哦！");
+        } else {
+            next = nextArticles.get(0);
+            next.setArticleStaticUrl(contextPath + next.getArticleStaticUrl() + ".html");
+        }
+
+        //上一篇文章
+        ArticlesEntity last = null;
+        List<ArticlesEntity> lastAs = articleDao.findLastArticle(articles.get(0).getArticleCdate());
+        if (lastAs == null || lastAs.size() <= 0) {
+            last = new ArticlesEntity();
+            last.setArticleStaticUrl("#");
+            last.setArticleTitle("这是第一篇哦！");
+        } else {
+            last = lastAs.get(0);
+            last.setArticleStaticUrl(contextPath + last.getArticleStaticUrl() + ".html");
+        }
+
         //封装模版所需参数
         Map<String, Object> params = new HashMap<String, Object>();
+        params.put("looked", articles.get(0).getArticleLooks());
+        params.put("artid", artid);
+        params.put("likes", articles.get(0).getArticleLikes());
+        params.put("lastArticlesList", lastArticles);
+        params.put("categoryList", categories);
+        params.put("likesURL", contextPath + "/likeAction.action?artid=" + artid);
+        params.put("nextArticle", next);
+        params.put("lastArticle", last);
+        params.put("staticURL", articles.get(0).getArticleStaticUrl());
 
 
-
-
-        return null;
+        return params;
     }
 
 

@@ -8,6 +8,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -66,7 +67,7 @@ public class ArticleDaoImpl  extends CommonDaoImpl<TbArticleEntity> implements A
     public List<LastarticleEntity> findAllLastarticle() {
         List<LastarticleEntity> list=null;
         try {
-            list=getSessionFactory().getCurrentSession().createCriteria(LastarticleEntity.class).list();
+            list=getSessionFactory().getCurrentSession().createQuery("from LastarticleEntity order by articleCdate desc").list();
         } catch (HibernateException e) {
             e.printStackTrace();
         }
@@ -77,7 +78,7 @@ public class ArticleDaoImpl  extends CommonDaoImpl<TbArticleEntity> implements A
     public List<ToparticlesEntity> findAllToparticle() {
         List<ToparticlesEntity> list=null;
         try {
-            list=getSessionFactory().getCurrentSession().createCriteria(ToparticlesEntity.class).list();
+            list=getSessionFactory().getCurrentSession().createQuery("from ToparticlesEntity order by articleCdate desc").list();
         } catch (HibernateException e) {
             e.printStackTrace();
         }
@@ -85,10 +86,43 @@ public class ArticleDaoImpl  extends CommonDaoImpl<TbArticleEntity> implements A
     }
 
     @Override
-    public List<ArticlesEntity> findAllArticles() {
+    public List<ArticlesEntity> findArticles(int articleId) {
         List<ArticlesEntity> list=null;
         try {
-            list=getSessionFactory().getCurrentSession().createCriteria(ArticlesEntity.class).list();
+            Query query = getSessionFactory().getCurrentSession().createQuery("from ArticlesEntity where articleId=?");
+            query.setInteger(0,articleId);
+            return query.list();
+
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    @Override
+    public List<ArticlesEntity> findNextArticle(Timestamp Cdate) {
+        List<ArticlesEntity> list=null;
+        try {
+            Query query = getSessionFactory().getCurrentSession().createQuery("from ArticlesEntity where articleCdate>? order by articleCdate");
+            query.setTimestamp(0,Cdate);
+            query.setMaxResults(3);  //查询出来的记录数
+            return query.list();
+
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    @Override
+    public List<ArticlesEntity> findLastArticle(Timestamp Cdate) {
+        List<ArticlesEntity> list=null;
+        try {
+            Query query = getSessionFactory().getCurrentSession().createQuery("from ArticlesEntity where articleCdate<? order by articleCdate");
+            query.setTimestamp(0,Cdate);
+            query.setMaxResults(3);  //查询出来的记录数
+            return query.list();
+
         } catch (HibernateException e) {
             e.printStackTrace();
         }
