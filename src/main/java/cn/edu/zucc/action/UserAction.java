@@ -37,9 +37,7 @@ public class UserAction extends ActionSupport{
         System.out.println("username=" + studentNumber);
         System.out.println("pwd=" + pwd);
         getUserService().getUserList();
-
         usertableBean = getUserService().login(studentNumber,pwd);
-
         if (usertableBean!=null) {
             ActionContext.getContext().getSession().put("user", usertableBean);
             System.out.println(usertableBean);

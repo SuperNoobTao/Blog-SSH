@@ -6,6 +6,7 @@ import cn.edu.zucc.dao.Category.CategoryDao;
 import cn.edu.zucc.dao.Category.CategoryDaoImpl;
 import cn.edu.zucc.model.TbArticleEntity;
 import cn.edu.zucc.model.TbCategoryEntity;
+import cn.edu.zucc.model.ToparticlesEntity;
 
 import java.util.List;
 import java.util.Map;
@@ -35,7 +36,7 @@ public interface ArticleService {
 
     //查询所有文章
     public List<TbArticleEntity> getAllArtcles() throws Exception;
-
+    public List<ToparticlesEntity> getArtclesList() throws Exception;
 
     //根据条件查询
     public List<TbArticleEntity> findByqQuery(String hql,int i) throws Exception;
@@ -43,5 +44,8 @@ public interface ArticleService {
 
     //得到freemarker模版文件所需参数
     public Map<String, Object> getTemplateParams(int artid, String contextPath, boolean isNew) throws Exception;
+
+
+
 
 }

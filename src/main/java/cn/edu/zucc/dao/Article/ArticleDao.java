@@ -29,6 +29,7 @@ public interface ArticleDao {
 
     //查所有
     public List<TbArticleEntity> findAll() throws Exception;
+    public List<ToparticlesEntity> findArticleList() throws Exception;
 
     //查分页
     //待定--------------

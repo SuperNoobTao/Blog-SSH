@@ -46,8 +46,14 @@ public class CategoryServiceImpl implements CategoryService{
 
     //删除类别
     @Override
-    public boolean deleteCategory(TbCategoryEntity tbCategoryEntity) throws Exception {
+    public boolean deleteCategory(int categoryId) throws Exception {
+
+        TbCategoryEntity tbCategoryEntity = new TbCategoryEntity();
+        tbCategoryEntity = categoryDao.findById(categoryId);
+            System.out.println(categoryDao.delete(tbCategoryEntity));
         return categoryDao.delete(tbCategoryEntity);
+
+
     }
     //查询指定类别 id
     @Override
@@ -62,6 +68,11 @@ public class CategoryServiceImpl implements CategoryService{
     //更新类别
     @Override
     public boolean updateCategory(TbCategoryEntity tbCategoryEntity) throws Exception {
-        return categoryDao.update(tbCategoryEntity);
+        TbCategoryEntity temp ;
+        System.out.println(tbCategoryEntity.getCategoryId()+","+tbCategoryEntity.getCategoryName()+","+tbCategoryEntity.getCategoryRemark());
+        temp = categoryDao.findById(tbCategoryEntity.getCategoryId());
+        temp.setCategoryName(tbCategoryEntity.getCategoryName());
+        temp.setCategoryRemark(tbCategoryEntity.getCategoryRemark());
+        return categoryDao.update(temp);
     }
 }

@@ -69,6 +69,7 @@
 			<tx:method name="add*" propagation="REQUIRED"/>
 			<tx:method name="del*" propagation="REQUIRED"/>
 			<tx:method name="modify*" propagation="REQUIRED"/>
+			<tx:method name="update*" propagation="REQUIRED"/>
 			<tx:method name="register" propagation="REQUIRED"/>
 			<tx:method name="*" read-only="true"/>
 		</tx:attributes>
@@ -116,10 +117,22 @@
 	<bean id="tbArticleEntity" class="cn.edu.zucc.model.TbArticleEntity" />
 	<bean id="tbCategoryEntity" class="cn.edu.zucc.model.TbCategoryEntity" />
 
+	<!--在categoryaction中注入service-->
+	<!--在categoryaction中注入been-->
+	<bean id="CategoryAction" class="cn.edu.zucc.action.CategoryAction"  >
+		<property name="categoryService" ref="categoryService"></property>
+		<property name="tbCategoryEntity" ref="tbCategoryEntity"></property>
+	</bean>
+
+
+
+
 	<!--在indexaction中注入service-->
 	<bean id="IndexAction" class="cn.edu.zucc.action.IndexAction"  >
 		<property name="articleService" ref="articleService" ></property>
 	</bean>
+
+
 
 
 	<!--在ArticleViewFilter中注入artcielservice-->

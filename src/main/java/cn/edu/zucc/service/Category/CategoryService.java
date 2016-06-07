@@ -17,7 +17,7 @@ public interface CategoryService {
     public  boolean  addCategory(TbCategoryEntity tbCategoryEntity)  throws Exception;
 
     //删除类别
-    public boolean deleteCategory(TbCategoryEntity tbCategoryEntity)  throws Exception;
+    public boolean deleteCategory(int categoryId)  throws Exception;
 
     //查询指定类别
     public TbCategoryEntity queryCategory(Integer id) throws Exception;

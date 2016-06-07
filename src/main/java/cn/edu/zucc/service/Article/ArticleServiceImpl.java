@@ -8,6 +8,7 @@ import cn.edu.zucc.model.*;
 import cn.edu.zucc.util.Global;
 import cn.edu.zucc.util.ServiceUtils;
 import com.sun.xml.internal.ws.server.ServerRtException;
+import org.apache.struts2.ServletActionContext;
 
 import java.util.HashMap;
 import java.util.List;
@@ -119,6 +120,10 @@ public class ArticleServiceImpl implements ArticleService{
         return articleDao.findAll();
     }
 
+    @Override
+    public List<ToparticlesEntity> getArtclesList() throws Exception {
+       return  articleDao.findAllToparticle();
+    }
 
 
     //根据条件查询
@@ -191,6 +196,8 @@ public class ArticleServiceImpl implements ArticleService{
 
         return params;
     }
+
+
 
 
 }

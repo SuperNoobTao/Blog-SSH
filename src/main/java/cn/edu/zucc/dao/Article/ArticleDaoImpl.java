@@ -38,6 +38,17 @@ public class ArticleDaoImpl  extends CommonDaoImpl<TbArticleEntity> implements A
     }
 
     @Override
+    public List<ToparticlesEntity> findArticleList() throws Exception {
+        List<ToparticlesEntity> list=null;
+        try {
+            list=getSessionFactory().getCurrentSession().createCriteria(ToparticlesEntity.class).list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    @Override
     public TbArticleEntity findByIdinfo(Integer id) throws Exception {
         String hql ="select articleId,articleLooks,articleLikes,articleMdate,articleStaticUrl from TbArticleEntity where articleId=?";
         Session session = getSessionFactory().getCurrentSession();

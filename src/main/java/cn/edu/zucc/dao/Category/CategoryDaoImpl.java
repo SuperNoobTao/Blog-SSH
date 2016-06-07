@@ -12,6 +12,8 @@ import org.hibernate.Session;
 public class CategoryDaoImpl extends CommonDaoImpl<TbCategoryEntity> implements CategoryDao{
 
 
+
+
     @Override
     public TbCategoryEntity findByName(String name) throws Exception {
         String hql ="select categoryId,categoryName,categoryCdate,categoryMdate,categoryRdate,categoryRemark from TbCategoryEntity where categoryName=?";

@@ -20,7 +20,17 @@ public class ToparticlesEntity {
     private String articleAuthor;
     private int categoryId;
     private String articleStaticUrl;
+    private int articleTop;
 
+    @Basic
+    @Column(name = "article_top")
+    public int getArticleTop() {
+        return articleTop;
+    }
+
+    public void setArticleTop(int articleTop) {
+        this.articleTop = articleTop;
+    }
     @Basic
     @Column(name = "article_title")
     public String getArticleTitle() {

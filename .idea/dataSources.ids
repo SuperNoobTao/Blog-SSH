@@ -40,7 +40,7 @@
         <data-type>varchar(255)</data-type>
       </column>
       <column id="15" parent="2" name="article_meta">
-        <data-type>varchar(255)</data-type>
+        <data-type>varchar(5000)</data-type>
       </column>
       <column id="16" parent="2" name="article_content">
         <data-type>longtext</data-type>
@@ -311,7 +311,7 @@
         <data-type>int(255)</data-type>
       </column>
       <column id="91" parent="9" name="article_meta">
-        <data-type>varchar(255)</data-type>
+        <data-type>varchar(5000)</data-type>
       </column>
       <column id="92" parent="9" name="article_type">
         <data-type>varchar(255)</data-type>
@@ -334,6 +334,9 @@
       </column>
       <column id="97" parent="9" name="article_staticUrl">
         <data-type>varchar(255)</data-type>
+      </column>
+      <column id="98" parent="9" name="article_top">
+        <data-type>int(255)</data-type>
       </column>
     </database-model>
   </data-source>

@@ -21,13 +21,16 @@
         <package name="cn.edu.zucc.action.ArticleAction" extends="struts-default">
                 <action name="article_addui" class="cn.edu.zucc.action.ArticleAction" method="addui">
                         <result name="success">/admin-article-add.jsp</result>
-
                 </action>
 
                 <action name="article_add" class="cn.edu.zucc.action.ArticleAction" method="add">
                         <result name="message">/message.jsp</result>
-
                 </action>
+
+                <action name="article_query" class="cn.edu.zucc.action.ArticleAction" method="query">
+                        <result name="query">/admin-article-manage.jsp</result>
+                </action>
+
         </package>
 
 
@@ -39,6 +42,33 @@
                 <action name="index" class="cn.edu.zucc.action.IndexAction" >
                         <result>/blog-index.jsp</result>
 
+                </action>
+        </package>
+
+        <package name="cn.edu.zucc.action.CategoryAction"  extends="struts-default">
+                <!--跳转到添加类别的页面-->
+                <action name="category_addui" class="cn.edu.zucc.action.CategoryAction" method="addui" >
+                        <result name="success">/admin-category.jsp</result>
+                </action>
+
+                <action name="category_add" class="cn.edu.zucc.action.CategoryAction" method="add">
+                        <result name="message">/message.jsp</result>
+                </action>
+
+                <action name="category_query" class="cn.edu.zucc.action.CategoryAction" method="query">
+                        <result name="query">/admin-category-manage.jsp</result>
+                </action>
+
+                <action name="category_delete" class="cn.edu.zucc.action.CategoryAction" method="delete">
+                        <result name="delete">/admin-category-manage.jsp</result>
+                </action>
+
+                <action name="category_updateui" class="cn.edu.zucc.action.CategoryAction" method="updateui">
+                        <result name="success">/admin-category.jsp</result>
+                </action>
+
+                <action name="category_update" class="cn.edu.zucc.action.CategoryAction" method="modifyCategory">
+                        <result name="message">/message.jsp</result>
                 </action>
 
 

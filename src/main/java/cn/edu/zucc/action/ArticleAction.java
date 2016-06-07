@@ -3,6 +3,7 @@ package cn.edu.zucc.action;
 import cn.edu.zucc.model.TbArticleEntity;
 import cn.edu.zucc.model.TbCategoryEntity;
 import cn.edu.zucc.model.TbUserEntity;
+import cn.edu.zucc.model.ToparticlesEntity;
 import cn.edu.zucc.service.Article.ArticleService;
 import cn.edu.zucc.service.Article.ArticleServiceImpl;
 import cn.edu.zucc.service.Category.CategoryService;
@@ -58,6 +59,16 @@ public class ArticleAction extends ActionSupport {
     public void setTbArticleEntity(TbArticleEntity tbArticleEntity) {
         this.tbArticleEntity = tbArticleEntity;
     }
+
+
+    //(分页)-暂时不做
+    //查询文章
+    public String query() throws Exception {
+        List<ToparticlesEntity> articleList = articleService.getArtclesList();
+        ServletActionContext.getRequest().setAttribute("page", articleList);
+        return "query";
+    }
+
 
 
     //添加文章界面
