@@ -22,7 +22,7 @@
   <script type="text/javascript" src="../style/js/selectnav.js"></script>
   <script type="text/javascript" src="../style/js/jquery.backstretch.min.js"></script>
   <script type="text/javascript">
-    $.backstretch("../style/images/bg/1.jpg");
+    $.backstretch("../style/images/bg/16.jpg");
   </script>
   <style type="text/css">
     body{
@@ -36,7 +36,7 @@
 <div class="content1 box1">
 	<h1 class="title2">微信</h1>
 	<div class="wechat-img">
-    	<img src="../images/wechat.png" alt="扫描添加微信"/>
+    	<img src="../style/images/wechat.jpg" alt="扫描添加微信"/>
 	</div>
 </div>
 

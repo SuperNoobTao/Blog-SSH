@@ -30,7 +30,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/style/js/selectnav.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/style/js/jquery.backstretch.min.js"></script>
     <script type="text/javascript">
-        $.backstretch("${pageContext.request.contextPath}/style/images/bg/1.jpg");
+        $.backstretch("${pageContext.request.contextPath}/style/images/bg/16.jpg");
     </script>
 </head>
 <body>

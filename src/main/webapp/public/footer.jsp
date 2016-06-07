@@ -9,16 +9,15 @@
 <div class="clear"></div></div>
 <div class="footer-wrapper">
   <div id="footer" class="four">
-    <a href="/s/">短网址</a>&nbsp;&nbsp;
-    <a href="/WorkUpload/">作业提交系统</a>&nbsp;&nbsp;
-    <a href="/uShare/">uShare</a>&nbsp;&nbsp;
-    <a href="/smartor/">Smartor</a>&nbsp;&nbsp;
-    <a href="/PlaneWar/">飞机大战</a>
+    <a href="/s/">仓库管理系统</a>&nbsp;&nbsp;
+    <a href="/WorkUpload/">你画我猜小游戏</a>&nbsp;&nbsp;
+    <a href="/uShare/">IOnline</a>&nbsp;&nbsp;
+
   </div>
 </div>
 <div class="site-generator-wrapper">
   <div class="site-generator">
-    Copyright &copy;2016.Coselding &nbsp;Design by <a href="http://elemisfreebies.com">elemis.</a> All rights reserved.<a href="http://www.miitbeian.gov.cn">鲁ICP备15036981号-2</a>
+    Copyright &copy;2016.Coselding &nbsp;Design by <a href="http://elemisfreebies.com">elemis.</a> All rights reserved.<a href="http://www.miitbeian.gov.cn">浙ICP备15036981号-2</a>
   </div>
 </div>
 <!-- End Footer -->

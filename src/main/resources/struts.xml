@@ -37,7 +37,7 @@
                 <default-action-ref name="index"></default-action-ref>
                 <!-- 主页 -->
                 <action name="index" class="cn.edu.zucc.action.IndexAction" >
-                        <result>/blog_index.jsp</result>
+                        <result>/blog-index.jsp</result>
 
                 </action>
 

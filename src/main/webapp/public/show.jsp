@@ -23,6 +23,6 @@
   </style>
 </head>
 <body>
-  <div id="title">欢迎使用Coselding博客后台管理系统</div>
+  <div id="title">欢迎使用C红茶先森的博客后台管理系统</div>
 </body>
 </html>

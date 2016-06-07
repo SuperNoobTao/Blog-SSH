@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by shentao on 2016/5/31.
  */
-public interface ArticleDao{
+public interface ArticleDao {
 
     //增
     public  boolean  save(TbArticleEntity tbArticleEntity)  throws Exception;
@@ -42,9 +42,10 @@ public interface ArticleDao{
     //根据条件查询前几条
     public List<TbArticleEntity> findByqQuery(String hql,int i);
 
-
+    //查最新的三条记录
     public List<LastarticleEntity> findAllLastarticle();
 
+    //查顶端的四条记录
     public List<ToparticlesEntity> findAllToparticle();
 
     //查分页

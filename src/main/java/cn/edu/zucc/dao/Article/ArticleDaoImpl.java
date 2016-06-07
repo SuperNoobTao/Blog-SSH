@@ -19,14 +19,6 @@ public class ArticleDaoImpl  extends CommonDaoImpl<TbArticleEntity> implements A
 
     @Override
     public void updateArticleInfo(TbArticleEntity tbArticleEntity) throws Exception {
-
-        System.out.println("articleId="+tbArticleEntity.getArticleId());
-        System.out.println("articleLikes="+tbArticleEntity.getArticleLikes());
-        System.out.println("articleCdate="+tbArticleEntity.getArticleCdate());
-        System.out.println("articleLooks="+tbArticleEntity.getArticleLooks());
-        System.out.println("articleStaticUrl="+tbArticleEntity.getArticleStaticUrl());
-
-
         String hql ="update TbArticleEntity set articleLikes=? , articleCdate=?,articleLooks=?,articleStaticUrl=? where articleId=?";
         Session session = getSessionFactory().getCurrentSession();
         Query query = session.createQuery(hql);
@@ -67,7 +59,10 @@ public class ArticleDaoImpl  extends CommonDaoImpl<TbArticleEntity> implements A
     public List<LastarticleEntity> findAllLastarticle() {
         List<LastarticleEntity> list=null;
         try {
-            list=getSessionFactory().getCurrentSession().createQuery("from LastarticleEntity order by articleCdate desc").list();
+
+            Query query = getSessionFactory().getCurrentSession().createQuery("from LastarticleEntity order by articleCdate desc");
+            query.setMaxResults(3);  //查询出来的记录数
+            return query.list();
         } catch (HibernateException e) {
             e.printStackTrace();
         }

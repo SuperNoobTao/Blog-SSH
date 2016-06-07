@@ -26,20 +26,19 @@
             </ul>
           </li>
           <li>
-            <a href="https://github.com/Coselding" title="进入我的Github">Github</a>
+            <a href="https://github.com/SuperNoobTao" title="进入我的Github">Github</a>
           </li>
           <li>
-            <a href="http://blog.csdn.net/u014394255" title="进入我的CSDN博客">CSDN博客</a>
+            <a href="http://blog.csdn.net/qq_20079725" title="进入我的CSDN博客">CSDN博客</a>
           </li>
           <li>
             <a href="${pageContext.request.contextPath}/commentUI.action" title="给我留言">留言板</a>
           </li>
           <li><a href="#">Menu</a>
             <ul>
-              <li><a href="/s/">短网址</a></li>
-              <li><a href="/WorkUpload/">作业提交系统</a></li>
-              <li><a href="/uShare/">uShare</a></li>
-              <li><a href="/smartor/">Smartor</a></li>
+              <li><a href="/s/">仓库管理系统</a></li>
+              <li><a href="/WorkUpload/">你画我猜小游戏</a></li>
+              <li><a href="/uShare/">IOnline</a></li>
               <li><a href="${pageContext.request.contextPath}/login.jsp">管理员</a></li>
             </ul>
           </li>
@@ -56,7 +55,7 @@
     <li><a class="qq" href="tencent://message/?uin=1098129797&Site=&Menu=yes" title="QQ"></a></li>
     <li><a class="weibo" href="http://weibo.com/u/2671168890" title="新浪微博"></a></li>
     <li><a class="wechat" href="${pageContext.request.contextPath}/public/wechat.jsp" title="微信"></a></li>
-    <li><a class="email" href="mailto:1098129797@qq.com" title="邮件"></a></li>
+    <li><a class="email" href="mailto:387944558@qq.com" title="邮件"></a></li>
     <li><a class="phone" href="tel:15167195271" title="手机"></a></li>
   </ul>
   <div class="intro">你不是人,你是天使!遇上你是我这辈子最大的狗屎运。</div>

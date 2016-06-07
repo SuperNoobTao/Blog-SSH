@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<%@include file="head.jsp"%>
+<%@include file="public/menu.jsp"%>
 
 <!-- content start -->
 <div class="admin-content">
