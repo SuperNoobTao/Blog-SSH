@@ -2,6 +2,7 @@ package cn.edu.zucc.action;
 
 import cn.edu.zucc.dao.Category.CategoryDao;
 import cn.edu.zucc.exception.ForeignKeyException;
+import cn.edu.zucc.model.Page;
 import cn.edu.zucc.model.TbCategoryEntity;
 import cn.edu.zucc.model.ToparticlesEntity;
 import cn.edu.zucc.service.Category.CategoryService;
@@ -21,10 +22,12 @@ import java.util.List;
 public class CategoryAction extends ActionSupport{
     private CategoryService categoryService;
     private TbCategoryEntity tbCategoryEntity;
-
-    public CategoryService getCategoryService() {
-        return categoryService;
+    private String pagenum;
+    public String getPagenum() {
+        return pagenum;
     }
+
+
     public void setCategoryService(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
@@ -34,7 +37,12 @@ public class CategoryAction extends ActionSupport{
     public void setTbCategoryEntity(TbCategoryEntity tbCategoryEntity) {
         this.tbCategoryEntity = tbCategoryEntity;
     }
-
+    public void setPagenum(String pagenum) {
+        this.pagenum = pagenum;
+    }
+    public CategoryService getCategoryService() {
+        return categoryService;
+    }
 
     //添加类别界面
     public String addui(){
@@ -70,8 +78,10 @@ public class CategoryAction extends ActionSupport{
     //分页查询类别界面
     public String query() throws Exception {
         //分页查询所有类型
-        List<TbCategoryEntity> categoryEntityList = categoryService.getAllCategories();
-        ServletActionContext.getRequest().setAttribute("page", categoryEntityList);
+        String url = ServletActionContext.getRequest().getContextPath()+"/category_query.action";
+        Page<TbCategoryEntity> page = categoryService.queryPageCategory(pagenum,url);
+
+        ServletActionContext.getRequest().setAttribute("page",page);
         return "query";
     }
 

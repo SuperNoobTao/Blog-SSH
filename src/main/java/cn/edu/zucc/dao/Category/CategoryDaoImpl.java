@@ -6,6 +6,9 @@ import cn.edu.zucc.model.TbCategoryEntity;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import java.sql.SQLException;
+import java.util.List;
+
 /**
  * Created by shentao on 2016/5/31.
  */
@@ -28,5 +31,16 @@ public class CategoryDaoImpl extends CommonDaoImpl<TbCategoryEntity> implements 
         String hql = "select count(*)  from TbCategoryEntity";
         long count = (long) getSessionFactory().getCurrentSession().createQuery(hql).uniqueResult();
         return  count;
+    }
+
+    @Override
+    public List<TbCategoryEntity> getPageData(int startindex, int pagesize) throws SQLException {
+        String hql ="from TbCategoryEntity";
+        Session session = getSessionFactory().getCurrentSession();
+        Query query = session.createQuery(hql);
+        query.setFirstResult((startindex-1)*pagesize);
+        query.setMaxResults(pagesize);
+        List<TbCategoryEntity> list = query.list();
+        return list;
     }
 }

@@ -60,17 +60,6 @@ public class ArticleAction extends ActionSupport {
         this.tbArticleEntity = tbArticleEntity;
     }
 
-
-    //(分页)-暂时不做
-    //查询文章
-    public String query() throws Exception {
-        List<ToparticlesEntity> articleList = articleService.getArtclesList();
-        ServletActionContext.getRequest().setAttribute("page", articleList);
-        return "query";
-    }
-
-
-
     //添加文章界面
     public String addui() {
 
@@ -98,22 +87,51 @@ public class ArticleAction extends ActionSupport {
         TbUserEntity user = (TbUserEntity) session.getAttribute("user");
 
         TbArticleEntity article = initAddArticle();
-
         article.setUserId(user.getUserId());
         article.setArticleAuthor(user.getUserName());
-        System.out.println("action 中articleLikes="+article.getArticleLikes());
-        System.out.println("action 中articleLooked="+article.getArticleLooks());
-        System.out.println("action 中articleTitle="+article.getArticleTitle());
-
 
         //保存博文
-
         articleService.addArticle(article, ServletActionContext.getRequest().getContextPath(), ServletActionContext.getServletContext().getRealPath("/blog"));
-
         request.setAttribute("message", "博文录入成功！！！");
         request.setAttribute("url", request.getContextPath() + "/admin-article-manage.jsp");
         return "message";
     }
+
+
+//    //删除操作
+//    public String delete() {
+//        int categoryId = Integer.parseInt(ServletActionContext.getRequest().getParameter("articleId"));
+//        categoryService.deleteCategory(categoryId);
+//        ArticleServiceImpl service = new ArticleServiceImpl();
+//        service.deleteArticle(artid, ServletActionContext.getServletContext().getRealPath("/"));
+//        return "delete";
+//    }
+
+
+
+
+
+
+
+
+
+
+
+
+    //(分页)-暂时不做
+    //查询文章
+    public String query() throws Exception {
+        List<ToparticlesEntity> articleList = articleService.getArtclesList();
+        ServletActionContext.getRequest().setAttribute("page", articleList);
+        return "query";
+    }
+
+
+
+
+
+
+
 
 
     //初始化封装文章实体

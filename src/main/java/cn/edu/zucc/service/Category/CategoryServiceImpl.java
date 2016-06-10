@@ -2,8 +2,12 @@ package cn.edu.zucc.service.Category;
 
 import cn.edu.zucc.dao.Category.CategoryDao;
 import cn.edu.zucc.dao.Category.CategoryDaoImpl;
+import cn.edu.zucc.exception.ForeignKeyException;
+import cn.edu.zucc.model.Page;
 import cn.edu.zucc.model.TbCategoryEntity;
+import org.springframework.jdbc.support.JdbcUtils;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -46,33 +50,68 @@ public class CategoryServiceImpl implements CategoryService{
 
     //删除类别
     @Override
-    public boolean deleteCategory(int categoryId) throws Exception {
-
-        TbCategoryEntity tbCategoryEntity = new TbCategoryEntity();
+    public boolean deleteCategory(int categoryId) throws ForeignKeyException {
+        try {
+        TbCategoryEntity tbCategoryEntity;
         tbCategoryEntity = categoryDao.findById(categoryId);
-            System.out.println(categoryDao.delete(tbCategoryEntity));
         return categoryDao.delete(tbCategoryEntity);
+        } catch (Exception e) {
+            if(e.getMessage().contains("a foreign key constraint fails"))
+                throw new ForeignKeyException(e);
+            throw new RuntimeException(e);
+        }
+    }
 
 
+    //查询指定类别
+    public TbCategoryEntity queryCategory(Integer cid) throws Exception {
+        try {
+            // 设置事务隔离级别
+            TbCategoryEntity category = categoryDao.findById(cid);
+            return category;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
-    //查询指定类别 id
-    @Override
-    public TbCategoryEntity queryCategory(Integer id) throws Exception {
-        return categoryDao.findById(id);
-    }
-    //查询指定类别 name
-    @Override
-    public TbCategoryEntity findByName(String name) throws Exception {
-        return categoryDao.findByName(name);
-    }
+
+
     //更新类别
     @Override
     public boolean updateCategory(TbCategoryEntity tbCategoryEntity) throws Exception {
         TbCategoryEntity temp ;
-        System.out.println(tbCategoryEntity.getCategoryId()+","+tbCategoryEntity.getCategoryName()+","+tbCategoryEntity.getCategoryRemark());
         temp = categoryDao.findById(tbCategoryEntity.getCategoryId());
         temp.setCategoryName(tbCategoryEntity.getCategoryName());
         temp.setCategoryRemark(tbCategoryEntity.getCategoryRemark());
         return categoryDao.update(temp);
     }
+
+
+    //查询指定类别 name
+    @Override
+    public TbCategoryEntity findByName(String name) throws Exception {
+        return categoryDao.findByName(name);
+    }
+
+
+    //分页查询类别
+    public Page<TbCategoryEntity> queryPageCategory(String pagenum, String url) throws Exception {
+        // 总记录数
+        int totalrecord = (int) categoryDao.getCount();
+        Page<TbCategoryEntity> page = null;
+        if (pagenum == null)
+            // 没传递页号，回传第一页数据
+            page = new Page<TbCategoryEntity>(totalrecord, 1);
+        else
+            // 根据传递的页号查找所需显示数据
+            page = new Page<TbCategoryEntity>(totalrecord, Integer.parseInt(pagenum));
+        List<TbCategoryEntity> list = categoryDao.getPageData(page.getStartindex(),
+                page.getPagesize());
+        page.setList(list);
+        page.setUrl(url);
+        return  page;
+
+    }
+
+
 }

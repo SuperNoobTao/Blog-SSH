@@ -35,7 +35,8 @@ public interface CategoryDao {
     //查总数
     public  long getCount() throws Exception;
 
-
+    //查询分页
+    List<TbCategoryEntity> getPageData(int startindex, int pagesize) throws SQLException;
 
 
 

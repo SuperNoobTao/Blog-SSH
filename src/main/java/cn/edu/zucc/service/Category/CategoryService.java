@@ -1,5 +1,7 @@
 package cn.edu.zucc.service.Category;
 
+import cn.edu.zucc.exception.ForeignKeyException;
+import cn.edu.zucc.model.Page;
 import cn.edu.zucc.model.TbCategoryEntity;
 
 import java.util.List;
@@ -17,7 +19,7 @@ public interface CategoryService {
     public  boolean  addCategory(TbCategoryEntity tbCategoryEntity)  throws Exception;
 
     //删除类别
-    public boolean deleteCategory(int categoryId)  throws Exception;
+    public boolean deleteCategory(int categoryId)  throws ForeignKeyException;
 
     //查询指定类别
     public TbCategoryEntity queryCategory(Integer id) throws Exception;
@@ -27,8 +29,8 @@ public interface CategoryService {
     //更新类别
     public boolean updateCategory(TbCategoryEntity tbCategoryEntity)  throws Exception;
 
-
-
+    //分页查询类别
+    public Page<TbCategoryEntity> queryPageCategory(String pagenum, String url) throws Exception;
 
 
 }
