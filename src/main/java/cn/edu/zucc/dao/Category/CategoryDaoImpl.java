@@ -38,9 +38,12 @@ public class CategoryDaoImpl extends CommonDaoImpl<TbCategoryEntity> implements 
         String hql ="from TbCategoryEntity";
         Session session = getSessionFactory().getCurrentSession();
         Query query = session.createQuery(hql);
-        query.setFirstResult((startindex-1)*pagesize);
+        query.setFirstResult((startindex/pagesize)*pagesize);
         query.setMaxResults(pagesize);
         List<TbCategoryEntity> list = query.list();
+        for (int i = 0 ;i < list.size() ; i++) {
+            System.out.println(list.get(i).getCategoryName());
+        }
         return list;
     }
 }

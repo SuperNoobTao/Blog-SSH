@@ -23,10 +23,7 @@ public class CategoryAction extends ActionSupport{
     private CategoryService categoryService;
     private TbCategoryEntity tbCategoryEntity;
     private String pagenum;
-    public String getPagenum() {
-        return pagenum;
-    }
-
+    private String method;
 
     public void setCategoryService(CategoryService categoryService) {
         this.categoryService = categoryService;
@@ -40,9 +37,16 @@ public class CategoryAction extends ActionSupport{
     public void setPagenum(String pagenum) {
         this.pagenum = pagenum;
     }
+    public String getPagenum() {
+        return pagenum;
+    }
     public CategoryService getCategoryService() {
         return categoryService;
     }
+    public String getMethod() {
+        return method;
+    }
+    public void setMethod(String method) {this.method = method;}
 
     //添加类别界面
     public String addui(){
@@ -99,7 +103,7 @@ public class CategoryAction extends ActionSupport{
         return "delete";
     }
     //修改类别
-    public String modifyCategory() throws Exception {
+    public String update() throws Exception {
         TbCategoryEntity category = new TbCategoryEntity();
         category.setCategoryName(this.getTbCategoryEntity().getCategoryName());
         category.setCategoryRemark(this.getTbCategoryEntity().getCategoryRemark());
@@ -122,7 +126,11 @@ public class CategoryAction extends ActionSupport{
         return SUCCESS;
     }
 
-
+    //默认情况下，查询列表
+    @Override
+    public String execute() throws Exception {
+        return query();
+    }
 
 
 

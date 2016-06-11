@@ -32,7 +32,7 @@ public interface ArticleDao {
     public List<ToparticlesEntity> findArticleList() throws Exception;
 
     //查分页
-    //待定--------------
+    List<TbArticleEntity> getPageData(String selection, Object[] params, int startindex, int pagesize) throws SQLException;
 
     //查单个
     public TbArticleEntity findById(Integer id) throws Exception;
@@ -55,5 +55,9 @@ public interface ArticleDao {
     public List<ArticlesEntity> findNextArticle(Timestamp Cdate);
     //查last
     public List<ArticlesEntity> findLastArticle(Timestamp Cdate);
+
+
+    //根据条件查询
+    List<TbArticleEntity> queryArticleBySQL(String sql, Object[] params) throws SQLException;
 
 }

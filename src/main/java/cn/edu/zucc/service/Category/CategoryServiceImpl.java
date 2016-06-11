@@ -96,6 +96,7 @@ public class CategoryServiceImpl implements CategoryService{
 
     //分页查询类别
     public Page<TbCategoryEntity> queryPageCategory(String pagenum, String url) throws Exception {
+        System.out.println("页号"+pagenum);
         // 总记录数
         int totalrecord = (int) categoryDao.getCount();
         Page<TbCategoryEntity> page = null;
@@ -105,6 +106,7 @@ public class CategoryServiceImpl implements CategoryService{
         else
             // 根据传递的页号查找所需显示数据
             page = new Page<TbCategoryEntity>(totalrecord, Integer.parseInt(pagenum));
+        System.out.println("page.getStartindex()"+page.getStartindex());
         List<TbCategoryEntity> list = categoryDao.getPageData(page.getStartindex(),
                 page.getPagesize());
         page.setList(list);

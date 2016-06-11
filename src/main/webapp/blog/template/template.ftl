@@ -160,6 +160,27 @@
         Copyright &copy;2016.Coselding &nbsp;Design by <a href="http://elemisfreebies.com">elemis.</a> All rights reserved.<a href="http://www.miitbeian.gov.cn">鲁ICP备15036981号-2</a>
     </div>
 </div>
+<script type="text/javascript" src="${#contextPath#}/style/js/scripts.js"></script>
+<script type="text/javascript">
+    function onComment(url){
+        var form = document.createElement('form');
+        form.action = url;
+        form.method = "post";
+        form.style.display =  "none";
 
+        var input = document.createElement("input");
+        input.name = "title";
+        input.value = "${#title#}";
+        form.appendChild(input);
+
+        var input2 = document.createElement("input");
+        input2.name = "artid";
+        input2.value = "${#artid#}";
+        form.appendChild(input2);
+
+        document.body.appendChild(form);
+        form.submit();
+    }
+</script>
 </body>
 </html>

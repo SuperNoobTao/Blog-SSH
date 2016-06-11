@@ -1,4 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<div>
 			当前第[${page.pagenum }]页
 			&nbsp;&nbsp;
 			<a href="javascript:submit('1')">首页</a>
@@ -23,7 +25,7 @@
 			<input type="text" id="pagenum" style="width: 30px">
 			&nbsp;
 			<input type="button" style="width: 40px" onclick="goWitch(document.getElementById('pagenum'))" value=" GO ">
-			
+</div>
 			<script type="text/javascript">
 				function submit(pagenum){
 					var form = document.createElement("form");

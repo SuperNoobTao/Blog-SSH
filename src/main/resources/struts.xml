@@ -46,36 +46,40 @@
         </package>
 
         <package name="cn.edu.zucc.action.CategoryAction"  extends="struts-default">
-                <!--跳转到添加类别的页面-->
-                <action name="category_addui" class="cn.edu.zucc.action.CategoryAction" method="addui" >
-                        <result name="success">/admin-category.jsp</result>
-                </action>
-
-                <action name="category_add" class="cn.edu.zucc.action.CategoryAction" method="add">
-                        <result name="message">/message.jsp</result>
-                </action>
-
-                <action name="category_query" class="cn.edu.zucc.action.CategoryAction" method="query">
+                <action name="category_*" class="cn.edu.zucc.action.CategoryAction" method="{1}">
                         <result name="query">/admin-category-manage.jsp</result>
-                </action>
-
-                <action name="category_delete" class="cn.edu.zucc.action.CategoryAction" method="delete">
-                        <result name="delete">/admin-category-manage.jsp</result>
-                </action>
-
-                <action name="category_updateui" class="cn.edu.zucc.action.CategoryAction" method="updateui">
                         <result name="success">/admin-category.jsp</result>
-                </action>
-
-                <action name="category_update" class="cn.edu.zucc.action.CategoryAction" method="modifyCategory">
+                        <result name="input">/admin-category.jsp</result>
                         <result name="message">/message.jsp</result>
+                        <result name="delete" type="redirectAction">category</result>
+                        <param name="method">{1}</param>
                 </action>
-
-
         </package>
 
 
 
 
+        <package name="cn.edu.zucc.action.CommentAction"  extends="struts-default">
+                <!-- 访客留言 -->
+                <action name="commentUI" class="cn.edu.zucc.action.CommentAction" method="commentUI">
+                        <result>/comment.jsp</result>
+                        <param name="method">commentUI</param>
+                </action>
+                <action name="comment" class="cn.edu.zucc.action.CommentAction" method="comment">
+                        <result name="input">/comment.jsp</result>
+                        <result name="success" type="redirectAction">commentUI</result>
+                        <param name="method">comment</param>
+                </action>
+                <!--&lt;!&ndash; 留言管理 &ndash;&gt;-->
+                <!--<action name="comment_*" class="cn.edu.zucc.action.CommentAction" method="{1}">-->
+                        <!--<result name="query">/WEB-INF/jsp/admin/commentmanage.jsp</result>-->
+
+                        <!--<result name="success">/WEB-INF/jsp/admin/comment.jsp</result>-->
+                        <!--<result name="input">/WEB-INF/jsp/admin/comment.jsp</result>-->
+
+                        <!--<result name="delete" type="redirectAction">comment</result>-->
+                        <!--<param name="method">{1}</param>-->
+                <!--</action>-->
+        </package>
 
 </struts>

@@ -57,8 +57,6 @@ public class ArticleServiceImpl implements ArticleService{
 
             //静态化页面
             List<TbCategoryEntity> list =categoryDao.findAll();
-            Global.setCategories(list);
-            Global.setCategories_cached(false);
 
             //静态化路径
             article.setArticleStaticUrl(article.staticPath());
@@ -138,13 +136,10 @@ public class ArticleServiceImpl implements ArticleService{
     //得到freemarker模版文件所需参数
     @Override
     public Map<String, Object> getTemplateParams(int artid, String contextPath, boolean isNew) throws Exception {
-        System.out.println("进入articleServiceImpl中");
+
         System.out.println("artid="+artid);
         //要看的文章
         List<ArticlesEntity> articles = getArticleDao().findArticles(artid);
-        System.out.println("articleServiceImpl中的"+articles.get(0).getArticleId());
-        System.out.println("articleServiceImpl中的"+articles.get(0).getArticleTitle());
-        System.out.println("articleServiceImpl中的"+articles.get(0).getArticleLikes());
 
         if (articles.size() <= 0)
             return null;

@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<div class="clear"></div></div>
+<div class="clear"></div>
 <div class="footer-wrapper">
   <div id="footer" class="four">
     <a href="/s/">仓库管理系统</a>&nbsp;&nbsp;

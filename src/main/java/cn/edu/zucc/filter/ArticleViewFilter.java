@@ -95,13 +95,13 @@ public class ArticleViewFilter implements Filter {
         Map<String,Object> params = null;
         try {
             params = articleService.getTemplateParams(artid, request.getContextPath(),isNew);
-            System.out.println("");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         boolean result =  TemplateUtils.parserTemplate(realPath+File.separator+"blog", matcher.group(1)+"/"+matcher.group(2)+"-"+matcher.group(3)+".ftl", params, response.getOutputStream());
-        System.out.println(result);
+
         if(!result){
             //服务器异常
             response.sendError(500,"服务器未知异常！");

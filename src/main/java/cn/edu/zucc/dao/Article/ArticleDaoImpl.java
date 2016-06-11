@@ -49,6 +49,11 @@ public class ArticleDaoImpl  extends CommonDaoImpl<TbArticleEntity> implements A
     }
 
     @Override
+    public List<TbArticleEntity> getPageData(String selection, Object[] params, int startindex, int pagesize) throws SQLException {
+        return null;
+    }
+
+    @Override
     public TbArticleEntity findByIdinfo(Integer id) throws Exception {
         String hql ="select articleId,articleLooks,articleLikes,articleMdate,articleStaticUrl from TbArticleEntity where articleId=?";
         Session session = getSessionFactory().getCurrentSession();
@@ -133,6 +138,11 @@ public class ArticleDaoImpl  extends CommonDaoImpl<TbArticleEntity> implements A
             e.printStackTrace();
         }
         return list;
+    }
+
+    @Override
+    public List<TbArticleEntity> queryArticleBySQL(String sql, Object[] params) throws SQLException {
+        return null;
     }
 
 
