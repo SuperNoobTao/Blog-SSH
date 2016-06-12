@@ -7,9 +7,10 @@ import java.io.UnsupportedEncodingException;
 /**
  * HttpServletRequest增强的包装类
  *
- * @author 宇强
+ * Created by shentao on 2016/6/12.
  *
  */
+
 public class EncodingRequest extends HttpServletRequestWrapper {
 
 	/**

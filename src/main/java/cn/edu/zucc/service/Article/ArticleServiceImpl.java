@@ -10,6 +10,7 @@ import cn.edu.zucc.util.ServiceUtils;
 import com.sun.xml.internal.ws.server.ServerRtException;
 import org.apache.struts2.ServletActionContext;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -75,16 +76,29 @@ public class ArticleServiceImpl implements ArticleService{
 
     //更新文章信息，喜爱，访问量
     @Override
-    public void updateArticleInfo(TbArticleEntity article) {
-
+    public void updateArticleInfo(TbArticleEntity article) throws Exception {
+    articleDao.updateArticleInfo(article);
     }
 
 
     //删除文章
     @Override
-    public void deleteArticle(int artid, String realPath) {
+    public void deleteArticle(int artid, String realPath) throws Exception {
+        TbArticleEntity article = articleDao.findById(artid);
+        //删除数据库记录
+        articleDao.delete(article);
+        //删除静态化文件
+        String path = realPath+ article.getArticleStaticUrl()+".ftl";
+        File file = new File(path);
+        if(file.exists()) {
+            file.delete();
+            //System.out.println("File delete....");
+        }
 
     }
+
+
+
 
 
 
@@ -130,7 +144,10 @@ public class ArticleServiceImpl implements ArticleService{
         return articleDao.findByqQuery(hql,i);
     }
 
-
+    @Override
+    public TbArticleEntity findById(Integer id) throws Exception {
+        return articleDao.findById(id);
+    }
 
 
     //得到freemarker模版文件所需参数
@@ -192,7 +209,54 @@ public class ArticleServiceImpl implements ArticleService{
         return params;
     }
 
+    //分页查询文章
+    @Override
+    public Page<TbArticleEntity> getPageArticles(String pagenum, String url) throws Exception {
+        int totalrecord = (int) articleDao.getCount();
+        Page<TbArticleEntity> page = null;
+        if (pagenum == null)
+            // 没传递页号，回传第一页数据
+            page = new Page<TbArticleEntity>(totalrecord, 1);
+        else
+            // 根据传递的页号查找所需显示数据
+            page = new Page<TbArticleEntity>(totalrecord, Integer.parseInt(pagenum));
+        List<TbArticleEntity> list = articleDao.getPageData(null, null, page.getStartindex(),
+                page.getPagesize());
+        page.setList(list);
+        page.setUrl(url);
+        return page;
+    }
 
+
+
+    //修改文章内容，半静态化，通知订阅用户
+    @Override
+    public boolean updateArticle(TbArticleEntity temp, String contextPath, String realPath) throws Exception {
+        boolean result = true;
+
+        TbArticleEntity article = articleDao.findById(temp.getArticleId());
+        article.setArticleType(temp.getArticleType());
+        article.setArticleContent(temp.getArticleContent());
+        article.setCategoryId(temp.getCategoryId());
+        article.setArticleTitle(temp.getArticleTitle());
+        article.setArticleMdate(temp.getArticleMdate());
+        article.setArticleMeta(temp.getArticleMeta());
+        article.setArticleTop(temp.getArticleTop());
+        //保存数据库
+        articleDao.update(article);
+        //静态化页面
+
+        List<TbCategoryEntity> list = categoryDao.findAll();
+
+        TbCategoryEntity category = categoryDao.findById(article.getCategoryId());
+        ServiceUtils.staticPage(article, contextPath, category, realPath);
+
+        //储存静态化页面路径
+        article.setArticleStaticUrl(article.staticPath());
+        articleDao.updateArticleInfo(article);
+
+    return result;
+    }
 
 
 }

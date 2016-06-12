@@ -1,7 +1,7 @@
 package cn.edu.zucc.exception;
 
 /**
- * Created by 宇强 on 2016/3/15 0015.
+ * Created by shentao on 2016/6/12.
  */
 public class ForeignKeyException extends Exception {
     public ForeignKeyException(Throwable throwable){

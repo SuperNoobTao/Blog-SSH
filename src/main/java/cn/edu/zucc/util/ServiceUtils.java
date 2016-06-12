@@ -20,9 +20,7 @@ import java.util.List;
 
 
 /**
- * Service层工具类
- *
- * @author 宇强 2015-11-05
+ * Created by shentao on 2016/6/12.
  */
 public class ServiceUtils {
 

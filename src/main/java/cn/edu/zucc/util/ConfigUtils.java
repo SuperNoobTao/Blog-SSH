@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-/**配置信息工具类
- * Created by 宇强 on 2016/3/16 0016.
+/**
+ * Created by shentao on 2016/6/12.
  */
 public class ConfigUtils {
 

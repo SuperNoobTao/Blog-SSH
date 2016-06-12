@@ -9,8 +9,8 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.Map;
 
-/**Freemarker模板引擎工具类
- * Created by 宇强 on 2016/3/13 0013.
+/**
+ * Created by shentao on 2016/6/12.
  */
 public class TemplateUtils {
 

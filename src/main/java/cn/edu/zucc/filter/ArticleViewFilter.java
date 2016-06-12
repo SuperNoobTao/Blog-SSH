@@ -21,7 +21,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**html静态化页面跳转
- * Created by 宇强 on 2016/3/13 0013.
+ * Created by shentao on 2016/6/12.
  */
 public class ArticleViewFilter implements Filter {
 

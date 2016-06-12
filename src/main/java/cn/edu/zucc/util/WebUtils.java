@@ -12,10 +12,7 @@ import java.util.Enumeration;
 import java.util.UUID;
 
 /**
- * Web层工具类
- *
- * @author 宇强 2016-3-12
- *
+ * Created by shentao on 2016/6/12.
  */
 public class WebUtils {
 

@@ -96,15 +96,70 @@ public class ArticleAction extends ActionSupport {
     }
 
 
-//    //删除操作
-//    public String delete() {
-//        int categoryId = Integer.parseInt(ServletActionContext.getRequest().getParameter("articleId"));
-//        categoryService.deleteCategory(categoryId);
-//        ArticleServiceImpl service = new ArticleServiceImpl();
-//        service.deleteArticle(artid, ServletActionContext.getServletContext().getRealPath("/"));
-//        return "delete";
-//    }
+    //删除操作
+    public String delete() throws Exception {
+        int articleId = Integer.parseInt(ServletActionContext.getRequest().getParameter("articleId"));
+        articleService.deleteArticle(articleId, ServletActionContext.getServletContext().getRealPath("/"));
+        return "delete";
+    }
 
+
+    //修改文章界面
+    public String updateui() throws Exception {
+        int articleId = Integer.parseInt(ServletActionContext.getRequest().getParameter("articleId"));
+        //查询要修改的文章
+        TbArticleEntity article = articleService.findById(articleId);
+
+        System.out.println("update Article ------------------------------");
+        System.out.println(article.getArticleContent());
+
+        HttpServletRequest request = ServletActionContext.getRequest();
+        request.setAttribute("article", article);
+        //查询所有类别
+        List<TbCategoryEntity> categories = categoryService.getAllCategories();
+
+        request.setAttribute("categories", categories);
+        request.setAttribute("artid", articleId);
+        request.setAttribute("method", "update");
+        request.setAttribute("pageTitle", "修改文章");
+        return SUCCESS;
+    }
+
+
+    //修改文章操作
+    public String update() throws Exception {
+        HttpServletRequest request = ServletActionContext.getRequest();
+        //修改博文
+
+        TbArticleEntity article = initUpdateArticle();
+        article.setArticleId(tbArticleEntity.getArticleId());
+        articleService.updateArticle(article, ServletActionContext.getRequest().getContextPath(), ServletActionContext.getServletContext().getRealPath("/blog"));
+
+        request.setAttribute("message", "博文修改成功！！！");
+        request.setAttribute("url", request.getContextPath() + "/manage/article.action");
+        return "message";
+    }
+
+    //初始化封装文章实体
+    private TbArticleEntity initUpdateArticle() {
+        Timestamp now = new Timestamp(System.currentTimeMillis());
+        TbArticleEntity article = new TbArticleEntity();
+        article.setCategoryId(tbArticleEntity.getCategoryId());
+        article.setArticleMdate(now);
+        article.setArticleTitle(tbArticleEntity.getArticleTitle());
+        article.setArticleType(tbArticleEntity.getArticleType());
+        article.setArticleTop(tbArticleEntity.getArticleTop());
+
+        //截取正文部分
+        String content = tbArticleEntity.getArticleContent();
+
+        content = content.substring(content.indexOf("<body>") + 6);
+        content = content.substring(0, content.indexOf("</body>"));
+        article.setArticleContent(content);
+        //提取文章摘要
+        article.setArticleMeta(tbArticleEntity.getArticleMeta());
+        return article;
+    }
 
 
 
@@ -115,6 +170,7 @@ public class ArticleAction extends ActionSupport {
         ServletActionContext.getRequest().setAttribute("page", articleList);
         return "query";
     }
+
 
 
     //初始化封装文章实体

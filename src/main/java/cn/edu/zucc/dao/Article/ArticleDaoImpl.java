@@ -75,7 +75,6 @@ public class ArticleDaoImpl  extends CommonDaoImpl<TbArticleEntity> implements A
     public List<LastarticleEntity> findAllLastarticle() {
         List<LastarticleEntity> list=null;
         try {
-
             Query query = getSessionFactory().getCurrentSession().createQuery("from LastarticleEntity order by articleCdate desc");
             query.setMaxResults(3);  //查询出来的记录数
             return query.list();

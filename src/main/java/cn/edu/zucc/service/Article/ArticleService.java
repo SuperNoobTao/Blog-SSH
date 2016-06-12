@@ -4,6 +4,7 @@ import cn.edu.zucc.dao.Article.ArticleDao;
 import cn.edu.zucc.dao.Article.ArticleDaoImpl;
 import cn.edu.zucc.dao.Category.CategoryDao;
 import cn.edu.zucc.dao.Category.CategoryDaoImpl;
+import cn.edu.zucc.model.Page;
 import cn.edu.zucc.model.TbArticleEntity;
 import cn.edu.zucc.model.TbCategoryEntity;
 import cn.edu.zucc.model.ToparticlesEntity;
@@ -23,11 +24,11 @@ public interface ArticleService {
 
 
     //更新文章信息，喜爱，访问量
-    public void updateArticleInfo(TbArticleEntity article) ;
+    public void updateArticleInfo(TbArticleEntity article) throws Exception;
 
 
     //删除文章
-    public void deleteArticle(int artid, String realPath);
+    public void deleteArticle(int artid, String realPath) throws Exception;
 
 
     //得到模板引擎参数
@@ -40,12 +41,15 @@ public interface ArticleService {
 
     //根据条件查询
     public List<TbArticleEntity> findByqQuery(String hql,int i) throws Exception;
-
+    public TbArticleEntity findById(Integer id) throws Exception;
 
     //得到freemarker模版文件所需参数
     public Map<String, Object> getTemplateParams(int artid, String contextPath, boolean isNew) throws Exception;
 
+    //分页查询文章
+    public Page<TbArticleEntity> getPageArticles(String pagenum, String url) throws Exception;
 
-
+    //修改文章内容，半静态化，通知订阅用户
+    public boolean updateArticle(TbArticleEntity temp, String contextPath, String realPath) throws Exception;
 
 }

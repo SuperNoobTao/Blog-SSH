@@ -51,8 +51,6 @@
         </package>
 
 
-
-
         <package name="cn.edu.zucc.action.CommentAction"  extends="struts-default">
                 <!-- 访客留言 -->
                 <action name="commentUI" class="cn.edu.zucc.action.CommentAction" method="commentUI">

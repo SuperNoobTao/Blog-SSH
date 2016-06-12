@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by 宇强 on 2016/3/12 0012.
+ * Created by shentao on 2016/6/12.
  */
 public class Global {
     //订阅缓存
