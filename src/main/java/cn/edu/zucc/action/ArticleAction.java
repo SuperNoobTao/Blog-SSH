@@ -26,39 +26,37 @@ public class ArticleAction extends ActionSupport {
     private CategoryService categoryService;
     private TbArticleEntity tbArticleEntity;
     private TbCategoryEntity tbCategoryEntity;
-
+    private String method;
 
     public CategoryService getCategoryService() {
         return categoryService;
     }
-
     public void setCategoryService(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
-
     public TbCategoryEntity getTbCategoryEntity() {
         return tbCategoryEntity;
     }
-
     public void setTbCategoryEntity(TbCategoryEntity tbCategoryEntity) {
         this.tbCategoryEntity = tbCategoryEntity;
     }
-
     public ArticleService getArticleService() {
         return articleService;
     }
-
     public void setArticleService(ArticleService articleService) {
         this.articleService = articleService;
     }
-
     public TbArticleEntity getTbArticleEntity() {
         return tbArticleEntity;
     }
-
     public void setTbArticleEntity(TbArticleEntity tbArticleEntity) {
         this.tbArticleEntity = tbArticleEntity;
     }
+    public String getMethod() {
+        return method;
+    }
+    public void setMethod(String method) {this.method = method;}
+
 
     //添加文章界面
     public String addui() {
@@ -93,7 +91,7 @@ public class ArticleAction extends ActionSupport {
         //保存博文
         articleService.addArticle(article, ServletActionContext.getRequest().getContextPath(), ServletActionContext.getServletContext().getRealPath("/blog"));
         request.setAttribute("message", "博文录入成功！！！");
-        request.setAttribute("url", request.getContextPath() + "/admin-article-manage.jsp");
+        request.setAttribute("url", request.getContextPath() + "/article.action");
         return "message";
     }
 
@@ -110,14 +108,6 @@ public class ArticleAction extends ActionSupport {
 
 
 
-
-
-
-
-
-
-
-
     //(分页)-暂时不做
     //查询文章
     public String query() throws Exception {
@@ -125,13 +115,6 @@ public class ArticleAction extends ActionSupport {
         ServletActionContext.getRequest().setAttribute("page", articleList);
         return "query";
     }
-
-
-
-
-
-
-
 
 
     //初始化封装文章实体
@@ -170,5 +153,12 @@ public class ArticleAction extends ActionSupport {
         return article;
     }
 
+
+
+    //默认情况下，查询文章列表
+    @Override
+    public String execute() throws Exception {
+        return query();
+    }
 
 }

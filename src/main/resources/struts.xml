@@ -5,7 +5,6 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
         <struts>
-
         <package name="cn.edu.zucc.action.UserAction" extends="struts-default">
                 <action name="UserAction_login" class="cn.edu.zucc.action.UserAction" method="login">
                         <result name="success">/admin-index.jsp</result>
@@ -19,20 +18,16 @@
 
 
         <package name="cn.edu.zucc.action.ArticleAction" extends="struts-default">
-                <action name="article_addui" class="cn.edu.zucc.action.ArticleAction" method="addui">
-                        <result name="success">/admin-article-add.jsp</result>
-                </action>
-
-                <action name="article_add" class="cn.edu.zucc.action.ArticleAction" method="add">
-                        <result name="message">/message.jsp</result>
-                </action>
-
-                <action name="article_query" class="cn.edu.zucc.action.ArticleAction" method="query">
+                <!-- 文章管理 -->
+                <action name="article_*" class="cn.edu.zucc.action.ArticleAction" method="{1}">
                         <result name="query">/admin-article-manage.jsp</result>
+                        <result name="success">/admin-article.jsp</result>
+                        <result name="input">/admin-article.jsp</result>
+                        <result name="message">/message.jsp</result>
+                        <result name="delete" type="redirectAction">article</result>
+                        <param name="method">{1}</param>
                 </action>
-
         </package>
-
 
 
         <package name="cn.edu.zucc.action.IndexAction"  extends="struts-default">
@@ -41,7 +36,6 @@
                 <!-- 主页 -->
                 <action name="index" class="cn.edu.zucc.action.IndexAction" >
                         <result>/blog-index.jsp</result>
-
                 </action>
         </package>
 
