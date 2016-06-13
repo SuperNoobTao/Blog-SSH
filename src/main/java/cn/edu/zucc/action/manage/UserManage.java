@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 /**
  * Created by shentao on 2016/5/22.
  */
-public class UserAction extends ActionSupport{
+public class UserManage extends ActionSupport{
     private UserService userService;
     private TbUserEntity usertableBean;
 

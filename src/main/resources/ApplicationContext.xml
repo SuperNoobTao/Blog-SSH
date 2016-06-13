@@ -100,23 +100,23 @@
 
 	<bean id="CommentManage" class="cn.edu.zucc.action.manage.CommentManage"  >
 		<property name="visitorService" ref="visitorService" ></property>
-
 	</bean>
-
 
 
 	<!--在useraction中注入service-->
 	<!--在useraction中注入userbeen-->
-	<bean id="UserAction" class="cn.edu.zucc.action.manage.UserAction"  >
+	<bean id="UserAction" class="cn.edu.zucc.action.manage.UserManage"  >
 		<property name="userService" ref="userService" ></property>
 		<property name="usertableBean" ref="usertableBean"></property>
 	</bean>
 	<bean id="userService" class="cn.edu.zucc.service.User.UserServiceImpl" />
 	<bean id="usertableBean" class="cn.edu.zucc.model.TbUserEntity" />
 
+
+
 	<!--在articleaction中注入service-->
 	<!--在articleaction中注入been-->
-	<bean id="ArticleAction" class="cn.edu.zucc.action.manage.ArticleAction"  >
+	<bean id="ArticleAction" class="cn.edu.zucc.action.manage.ArticleManage"  >
 		<property name="articleService" ref="articleService" ></property>
 		<property name="categoryService" ref="categoryService"></property>
 		<property name="tbArticleEntity" ref="tbArticleEntity" ></property>
@@ -129,13 +129,16 @@
 
 	<!--在categoryaction中注入service-->
 	<!--在categoryaction中注入been-->
-	<bean id="CategoryAction" class="cn.edu.zucc.action.manage.CategoryAction"  >
+	<bean id="CategoryAction" class="cn.edu.zucc.action.manage.CategoryManage"  >
 		<property name="categoryService" ref="categoryService"></property>
 		<property name="tbCategoryEntity" ref="tbCategoryEntity"></property>
 	</bean>
 
-
-
+	<!--在guestaction中注入service-->
+	<bean id="GuestManage" class="cn.edu.zucc.action.manage.GuestManage"  >
+		<property name="guestService" ref="guestService"></property>
+	</bean>
+	<bean id="guestService" class="cn.edu.zucc.service.Guest.GuestServiceImpl" />
 
 	<!--在indexaction中注入service-->
 	<bean id="IndexAction" class="cn.edu.zucc.action.IndexAction"  >
@@ -172,6 +175,15 @@
 		<property name="categoryDao" ref="categoryDao" ></property>
 	</bean>
 	<bean id="articleDao" class="cn.edu.zucc.dao.Article.ArticleDaoImpl" />
+
+
+	<!--在GuestServiceImpl中注入commentDao-->
+	<!--在GuestServiceImpl中注入guestDao-->
+	<bean id="GuestService" class="cn.edu.zucc.service.Guest.GuestServiceImpl"  >
+		<property name="guestDao" ref="guestDao" ></property>
+		<property name="commentDao" ref="commentDao" ></property>
+	</bean>
+
 
 
 

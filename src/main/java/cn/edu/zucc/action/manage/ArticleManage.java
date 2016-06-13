@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Created by shentao on 2016/5/31.
  */
-public class ArticleAction extends ActionSupport {
+public class ArticleManage extends ActionSupport {
     private ArticleService articleService;
     private CategoryService categoryService;
     private TbArticleEntity tbArticleEntity;

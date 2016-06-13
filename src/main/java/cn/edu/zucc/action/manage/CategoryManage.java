@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Created by shentao on 2016/5/31.
  */
-public class CategoryAction extends ActionSupport{
+public class CategoryManage extends ActionSupport{
     private CategoryService categoryService;
     private TbCategoryEntity tbCategoryEntity;
     private String pagenum;
