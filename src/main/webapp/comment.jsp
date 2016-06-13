@@ -50,21 +50,21 @@
             <input type="hidden" name="artid" value="${artid}">
             <fieldset>
                 <ol>
-                    <li class="form-row text-input-row">
-                        <label><h5>您的昵称：${errors.nickname[0]}</h5></label>
-                        <input type="text" name="nickname" value="${fn:escapeXml(nickname)}" class="text-input-email required">
-                    </li>
-                    <li class="form-row text-input-row">
-                        <label><h5>您的email：${errors.email[0]}</h5></label>
-                        <input type="text" name="email" value="${fn:escapeXml(email)}" class="text-input-email required">
-                    </li>
-                    <li class="form-row text-input-row">
-                        <label><h5>说几句话吧：${errors.comcontent[0]}</h5></label>
-                        <textarea name="comcontent" class="text-area required"><c:if test="${!empty(title)}">#${title}#</c:if>${fn:escapeXml(comcontent)}</textarea>
-                    </li>
-                    <li class="button-row">
-                        <input type="submit" value="留言" name="submit" class="btn-submit">
-                    </li>
+            <li class="form-row text-input-row">
+                <label><h5>您的昵称：${errors.nickname[0]}</h5></label>
+                <input type="text" name="nickname" value="${fn:escapeXml(nickname)}" class="text-input-email required">
+            </li>
+            <li class="form-row text-input-row">
+                <label><h5>您的email：${errors.email[0]}</h5></label>
+                <input type="text" name="email" value="${fn:escapeXml(email)}" class="text-input-email required">
+            </li>
+            <li class="form-row text-input-row">
+                <label><h5>说几句话吧：${errors.comcontent[0]}</h5></label>
+                <textarea name="comcontent" class="text-area required"><c:if test="${!empty(title)}">#${title}#</c:if>${fn:escapeXml(comcontent)}</textarea>
+            </li>
+            <li class="button-row">
+                <input type="submit" value="留言" name="submit" class="btn-submit">
+            </li>
                 </ol>
             </fieldset>
         </form>
@@ -76,11 +76,11 @@
         <div class="content2">
             <div class="post format-image box">
                 <div class="details">
-                    <span class="icon-image">${fn:substring(com.comtime,0,19)}</span>
+                    <span class="icon-image">${fn:substring(com.commetCdate,0,19)}</span>
                 </div>
-                <h1 class="title">${fn:escapeXml(com.gname)}</h1>
-                <p>${fn:escapeXml(com.comcontent)}</p>
-                <div class="tags"><a href="mailto:${com.gemail}">${com.gemail}</a></div>
+                <h1 class="title">${fn:escapeXml(com.guestName)}</h1>
+                <p>${fn:escapeXml(com.commetContent)}</p>
+                <div class="tags"><a href="mailto:${com.guestEmail}">${com.guestEmail}</a></div>
             </div>
         </div>
     </div>

@@ -56,7 +56,7 @@
         <li><a href="${pageContext.request.contextPath}/article.action"><span class="am-icon-table"></span>文章模块</a></li>
         <li><a href="${pageContext.request.contextPath}/category.action"><span class="am-icon-table"></span>类别模块</a></li>
         <li><a href="#"><span class="am-icon-table"></span>客户模块</a></li>
-        <li><a href="admin-comment-manage.jsp"><span class="am-icon-table"></span>管理留言</a></li>
+        <li><a href="${pageContext.request.contextPath}/commentManage.action"><span class="am-icon-table"></span>管理留言</a></li>
 
         <li><a href="#"><span class="am-icon-sign-out"></span>注销</a></li>
       </ul>

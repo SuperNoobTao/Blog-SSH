@@ -1,4 +1,4 @@
-package cn.edu.zucc.action;
+package cn.edu.zucc.action.manage;
 
 import cn.edu.zucc.model.TbArticleEntity;
 import cn.edu.zucc.model.TbCategoryEntity;

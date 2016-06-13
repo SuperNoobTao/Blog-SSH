@@ -17,23 +17,17 @@ import java.util.Map;
  */
 public interface ArticleService {
 
-
-
     //添加文章，半静态化，邮件通知订阅用户
     public boolean addArticle(TbArticleEntity article, String contextPath, String realPath);
-
 
     //更新文章信息，喜爱，访问量
     public void updateArticleInfo(TbArticleEntity article) throws Exception;
 
-
     //删除文章
     public void deleteArticle(int artid, String realPath) throws Exception;
 
-
     //得到模板引擎参数
     public Map<String, Object> getArticleListParams(String contextPath) throws Exception;
-
 
     //查询所有文章
     public List<TbArticleEntity> getAllArtcles() throws Exception;

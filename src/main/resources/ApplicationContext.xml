@@ -95,9 +95,19 @@
 	<bean id="articleViewFilter" class="cn.edu.zucc.filter.ArticleViewFilter"></bean>
 
 
+
+	<!--在commentmanage中注入service-->
+
+	<bean id="CommentManage" class="cn.edu.zucc.action.manage.CommentManage"  >
+		<property name="visitorService" ref="visitorService" ></property>
+
+	</bean>
+
+
+
 	<!--在useraction中注入service-->
 	<!--在useraction中注入userbeen-->
-	<bean id="UserAction" class="cn.edu.zucc.action.UserAction"  >
+	<bean id="UserAction" class="cn.edu.zucc.action.manage.UserAction"  >
 		<property name="userService" ref="userService" ></property>
 		<property name="usertableBean" ref="usertableBean"></property>
 	</bean>
@@ -106,7 +116,7 @@
 
 	<!--在articleaction中注入service-->
 	<!--在articleaction中注入been-->
-	<bean id="ArticleAction" class="cn.edu.zucc.action.ArticleAction"  >
+	<bean id="ArticleAction" class="cn.edu.zucc.action.manage.ArticleAction"  >
 		<property name="articleService" ref="articleService" ></property>
 		<property name="categoryService" ref="categoryService"></property>
 		<property name="tbArticleEntity" ref="tbArticleEntity" ></property>
@@ -119,7 +129,7 @@
 
 	<!--在categoryaction中注入service-->
 	<!--在categoryaction中注入been-->
-	<bean id="CategoryAction" class="cn.edu.zucc.action.CategoryAction"  >
+	<bean id="CategoryAction" class="cn.edu.zucc.action.manage.CategoryAction"  >
 		<property name="categoryService" ref="categoryService"></property>
 		<property name="tbCategoryEntity" ref="tbCategoryEntity"></property>
 	</bean>
@@ -132,8 +142,15 @@
 		<property name="articleService" ref="articleService" ></property>
 	</bean>
 
-
-
+	<!--在visitoraction中注入service-->
+	<bean id="CommentAction" class="cn.edu.zucc.action.CommentAction"  >
+		<property name="visitorService" ref="visitorService" ></property>
+		<property name="vCommentEntity" ref="vCommentEntity" ></property>
+		<property name="tbCommentEntity" ref="tbCommentEntity" ></property>
+	</bean>
+	<bean id="visitorService" class="cn.edu.zucc.service.Visitor.VisitorServiceImpl" />
+	<bean id="vCommentEntity" class="cn.edu.zucc.model.VCommentEntity" />
+	<bean id="tbCommentEntity" class="cn.edu.zucc.model.TbCommentEntity" />
 
 	<!--在ArticleViewFilter中注入artcielservice-->
 	<bean id="ArticleViewFilter" class="cn.edu.zucc.filter.ArticleViewFilter"  >
@@ -165,8 +182,14 @@
 	</bean>
 	<bean id="categoryDao" class="cn.edu.zucc.dao.Category.CategoryDaoImpl" />
 
-
-
+	<!--在visitorServiceImpl中注入categoryDao-->
+	<bean id="VisitorService" class="cn.edu.zucc.service.Visitor.VisitorServiceImpl"  >
+		<property name="guestDao" ref="guestDao" ></property>
+		<property name="commentDao" ref="commentDao" ></property>
+		<property name="articleDao" ref="articleDao" ></property>
+	</bean>
+	<bean id="guestDao" class="cn.edu.zucc.dao.Guest.GuestDaoImpl" />
+	<bean id="commentDao" class="cn.edu.zucc.dao.Comment.CommentDaoImpl" />
 
 
 

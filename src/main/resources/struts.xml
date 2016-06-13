@@ -5,21 +5,21 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
         <struts>
-        <package name="cn.edu.zucc.action.UserAction" extends="struts-default">
-                <action name="UserAction_login" class="cn.edu.zucc.action.UserAction" method="login">
+        <package name="cn.edu.zucc.action.manage.UserAction" extends="struts-default">
+                <action name="UserAction_login" class="cn.edu.zucc.action.manage.UserAction" method="login">
                         <result name="success">/admin-index.jsp</result>
                         <result name="error">/login.jsp</result>
                 </action>
-                <action name="UserAction_register" class="cn.edu.zucc.action.UserAction" method="register">
+                <action name="UserAction_register" class="cn.edu.zucc.action.manage.UserAction" method="register">
                         <result name="success">/login.jsp</result>
                         <result name="error">/register.jsp</result>
                 </action>
         </package>
 
 
-        <package name="cn.edu.zucc.action.ArticleAction" extends="struts-default">
+        <package name="cn.edu.zucc.action.manage.ArticleAction" extends="struts-default">
                 <!-- 文章管理 -->
-                <action name="article_*" class="cn.edu.zucc.action.ArticleAction" method="{1}">
+                <action name="article_*" class="cn.edu.zucc.action.manage.ArticleAction" method="{1}">
                         <result name="query">/admin-article-manage.jsp</result>
                         <result name="success">/admin-article.jsp</result>
                         <result name="input">/admin-article.jsp</result>
@@ -39,13 +39,22 @@
                 </action>
         </package>
 
-        <package name="cn.edu.zucc.action.CategoryAction"  extends="struts-default">
-                <action name="category_*" class="cn.edu.zucc.action.CategoryAction" method="{1}">
+        <package name="cn.edu.zucc.action.manage.CategoryAction" extends="struts-default">
+                <action name="category_*" class="cn.edu.zucc.action.manage.CategoryAction" method="{1}">
                         <result name="query">/admin-category-manage.jsp</result>
                         <result name="success">/admin-category.jsp</result>
                         <result name="input">/admin-category.jsp</result>
                         <result name="message">/message.jsp</result>
                         <result name="delete" type="redirectAction">category</result>
+                        <param name="method">{1}</param>
+                </action>
+        </package>
+
+        <package name="cn.edu.zucc.action.manage.CommentManage"    extends="struts-default">
+                <!-- 留言管理 -->
+                <action name="commentManage_*" class="cn.edu.zucc.action.manage.CommentManage" method="{1}">
+                        <result name="query">/admin-comment-manage.jsp</result>
+                        <result name="delete" type="redirectAction">comment</result>
                         <param name="method">{1}</param>
                 </action>
         </package>
@@ -62,16 +71,7 @@
                         <result name="success" type="redirectAction">commentUI</result>
                         <param name="method">comment</param>
                 </action>
-                <!--&lt;!&ndash; 留言管理 &ndash;&gt;-->
-                <!--<action name="comment_*" class="cn.edu.zucc.action.CommentAction" method="{1}">-->
-                        <!--<result name="query">/WEB-INF/jsp/admin/commentmanage.jsp</result>-->
 
-                        <!--<result name="success">/WEB-INF/jsp/admin/comment.jsp</result>-->
-                        <!--<result name="input">/WEB-INF/jsp/admin/comment.jsp</result>-->
-
-                        <!--<result name="delete" type="redirectAction">comment</result>-->
-                        <!--<param name="method">{1}</param>-->
-                <!--</action>-->
         </package>
 
 </struts>

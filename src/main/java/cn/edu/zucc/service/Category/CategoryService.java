@@ -14,7 +14,6 @@ public interface CategoryService {
     //得到所有类别
     public List<TbCategoryEntity> getAllCategories() throws Exception;
 
-
     //添加类别
     public  boolean  addCategory(TbCategoryEntity tbCategoryEntity)  throws Exception;
 

@@ -1,4 +1,4 @@
-package cn.edu.zucc.action;
+package cn.edu.zucc.action.manage;
 
 import cn.edu.zucc.dao.Category.CategoryDao;
 import cn.edu.zucc.exception.ForeignKeyException;
