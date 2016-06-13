@@ -39,7 +39,7 @@
               <li><a href="/s/">仓库管理系统</a></li>
               <li><a href="/WorkUpload/">你画我猜小游戏</a></li>
               <li><a href="/uShare/">IOnline</a></li>
-              <li><a href="${pageContext.request.contextPath}/login.jsp">管理员</a></li>
+              <li><a href="${pageContext.request.contextPath}/UserAction_loginui.action">管理员</a></li>
             </ul>
           </li>
         </ul>

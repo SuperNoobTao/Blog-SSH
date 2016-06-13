@@ -1,4 +1,4 @@
-package cn.edu.zucc.action.manage;
+package cn.edu.zucc.action;
 
 import cn.edu.zucc.model.TbUserEntity;
 import cn.edu.zucc.service.User.UserService;
@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 /**
  * Created by shentao on 2016/5/22.
  */
-public class UserManage extends ActionSupport{
+public class UserAction extends ActionSupport{
     private UserService userService;
     private TbUserEntity usertableBean;
 
@@ -67,13 +67,18 @@ public class UserManage extends ActionSupport{
         int i = getUserService().register(user);
         System.out.println("i="+i);
         if(i==1){
-            return SUCCESS;
+            return "r_success";
         }
 
-       return ERROR;
-
+       return "r_error";
     }
 
-
-
+    //登陆界面
+    public String loginui(){
+        return "login";
+    }
+    //注册界面
+    public String registerui(){
+        return "register";
+    }
 }

@@ -57,7 +57,7 @@
 
           <div class="am-cf">
             <input type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm am-fl">
-            <a href="${pageContext.request.contextPath}/register.jsp"><input type="button" name="" value="注 册" class="am-btn am-btn-default am-btn-sm am-fr"  ></a>
+            <a href="${pageContext.request.contextPath}/UserAction_registerui.action"><input type="button" name="" value="注 册" class="am-btn am-btn-default am-btn-sm am-fr"  ></a>
           </div>
 
         </form>

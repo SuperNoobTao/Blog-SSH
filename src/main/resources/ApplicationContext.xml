@@ -105,7 +105,7 @@
 
 	<!--在useraction中注入service-->
 	<!--在useraction中注入userbeen-->
-	<bean id="UserAction" class="cn.edu.zucc.action.manage.UserManage"  >
+	<bean id="UserAction" class="cn.edu.zucc.action.UserAction"  >
 		<property name="userService" ref="userService" ></property>
 		<property name="usertableBean" ref="usertableBean"></property>
 	</bean>
