@@ -164,6 +164,7 @@ public class CommentAction extends ActionSupport {
 
     //访客留言操作
     public String comment() throws Exception {
+        System.out.println("comment中的articleId"+vCommentEntity.getArticleId());
         Timestamp now = new Timestamp(System.currentTimeMillis());
 
         TbGuestEntity guest = new TbGuestEntity();

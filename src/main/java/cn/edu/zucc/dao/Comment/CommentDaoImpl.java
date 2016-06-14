@@ -28,7 +28,7 @@ public class CommentDaoImpl extends CommonDaoImpl<TbCommentEntity> implements Co
         String hql ="from VCommentEntity order by commetCdate desc";
         Session session = getSessionFactory().getCurrentSession();
         Query query = session.createQuery(hql);
-        query.setFirstResult((startindex/pagesize)*pagesize);
+        query.setFirstResult(startindex);
         query.setMaxResults(pagesize);
         List<VCommentEntity> list = query.list();
         return list;

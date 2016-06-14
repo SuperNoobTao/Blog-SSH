@@ -6,7 +6,7 @@ import java.util.List;
 public class Page<T>  implements Serializable {
 
 	// 每页记录数
-	public static final int PAGE_SIZE = 10;
+	public static final int PAGE_SIZE = 5;
 	// 网页中要显示的页码总数
 	public static final int PAGE_NUM = 10;
 	// 页数据

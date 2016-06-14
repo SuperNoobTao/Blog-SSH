@@ -6,7 +6,6 @@
         <struts>
 
         <package name="cn.edu.zucc.action.manage" extends="struts-default">
-
                 <interceptors>
                         <interceptor name="login" class="cn.edu.zucc.interceptor.LoginInterceptor">
                         </interceptor>

@@ -47,7 +47,7 @@
     <h1 class="title1">留言板</h1>
     <div class="form-container">
         <form class="forms" action="${pageContext.request.contextPath}/comment.action" method="post">
-            <input type="hidden" name="artid" value="${artid}">
+            <input type="hidden" name="vCommentEntity.articleId" value="${artid}">
             <fieldset>
                 <ol>
             <li class="form-row text-input-row">

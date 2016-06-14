@@ -28,7 +28,7 @@ public class GuestDaoImpl extends CommonDaoImpl<TbGuestEntity> implements GuestD
         String hql ="from TbGuestEntity ";
         Session session = getSessionFactory().getCurrentSession();
         Query query = session.createQuery(hql);
-        query.setFirstResult((startindex/pagesize)*pagesize);
+        query.setFirstResult(startindex);
         query.setMaxResults(pagesize);
         List<TbGuestEntity> list = query.list();
         return list;
