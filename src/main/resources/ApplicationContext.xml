@@ -82,7 +82,6 @@
 	</aop:config>
 
 
-
 	<!--在通用DAO中依赖注入sessionFactory-->
 	<bean id="baseDao"
 		  class="cn.edu.zucc.dao.common.CommonDaoImpl" abstract="true">
@@ -91,17 +90,12 @@
 		</property>
 	</bean>
 
-
 	<bean id="articleViewFilter" class="cn.edu.zucc.filter.ArticleViewFilter"></bean>
 
-
-
 	<!--在commentmanage中注入service-->
-
 	<bean id="CommentManage" class="cn.edu.zucc.action.manage.CommentManage"  >
 		<property name="visitorService" ref="visitorService" ></property>
 	</bean>
-
 
 	<!--在useraction中注入service-->
 	<!--在useraction中注入userbeen-->
@@ -109,10 +103,6 @@
 		<property name="userService" ref="userService" ></property>
 		<property name="usertableBean" ref="usertableBean"></property>
 	</bean>
-	<bean id="userService" class="cn.edu.zucc.service.User.UserServiceImpl" />
-	<bean id="usertableBean" class="cn.edu.zucc.model.TbUserEntity" />
-
-
 
 	<!--在articleaction中注入service-->
 	<!--在articleaction中注入been-->
@@ -122,10 +112,6 @@
 		<property name="tbArticleEntity" ref="tbArticleEntity" ></property>
 		<property name="tbCategoryEntity" ref="tbCategoryEntity"></property>
 	</bean>
-	<bean id="articleService" class="cn.edu.zucc.service.Article.ArticleServiceImpl" />
-	<bean id="categoryService" class="cn.edu.zucc.service.Category.CategoryServiceImpl" />
-	<bean id="tbArticleEntity" class="cn.edu.zucc.model.TbArticleEntity" />
-	<bean id="tbCategoryEntity" class="cn.edu.zucc.model.TbCategoryEntity" />
 
 	<!--在categoryaction中注入service-->
 	<!--在categoryaction中注入been-->
@@ -151,31 +137,22 @@
 		<property name="vCommentEntity" ref="vCommentEntity" ></property>
 		<property name="tbCommentEntity" ref="tbCommentEntity" ></property>
 	</bean>
-	<bean id="visitorService" class="cn.edu.zucc.service.Visitor.VisitorServiceImpl" />
-	<bean id="vCommentEntity" class="cn.edu.zucc.model.VCommentEntity" />
-	<bean id="tbCommentEntity" class="cn.edu.zucc.model.TbCommentEntity" />
 
 	<!--在ArticleViewFilter中注入artcielservice-->
 	<bean id="ArticleViewFilter" class="cn.edu.zucc.filter.ArticleViewFilter"  >
 		<property name="articleService" ref="articleService" ></property>
 	</bean>
 
-
-
 	<!--在userServiceImpl中注入userDao-->
 	<bean id="UserService" class="cn.edu.zucc.service.User.UserServiceImpl"  >
 		<property name="userDao" ref="userDao" ></property>
 	</bean>
-	<bean id="userDao" class="cn.edu.zucc.dao.User.UserDaoImpl" />
-
 
 	<!--在articleServiceImpl中注入articleDao-->
 	<bean id="ArticleService" class="cn.edu.zucc.service.Article.ArticleServiceImpl"  >
 		<property name="articleDao" ref="articleDao" ></property>
 		<property name="categoryDao" ref="categoryDao" ></property>
 	</bean>
-	<bean id="articleDao" class="cn.edu.zucc.dao.Article.ArticleDaoImpl" />
-
 
 	<!--在GuestServiceImpl中注入commentDao-->
 	<!--在GuestServiceImpl中注入guestDao-->
@@ -184,15 +161,10 @@
 		<property name="commentDao" ref="commentDao" ></property>
 	</bean>
 
-
-
-
-
 	<!--在categoryServiceImpl中注入categoryDao-->
 	<bean id="CategoryService" class="cn.edu.zucc.service.Category.CategoryServiceImpl"  >
 		<property name="categoryDao" ref="categoryDao" ></property>
 	</bean>
-	<bean id="categoryDao" class="cn.edu.zucc.dao.Category.CategoryDaoImpl" />
 
 	<!--在visitorServiceImpl中注入categoryDao-->
 	<bean id="VisitorService" class="cn.edu.zucc.service.Visitor.VisitorServiceImpl"  >
@@ -200,10 +172,22 @@
 		<property name="commentDao" ref="commentDao" ></property>
 		<property name="articleDao" ref="articleDao" ></property>
 	</bean>
+
+
+	<bean id="userService" class="cn.edu.zucc.service.User.UserServiceImpl" />
+	<bean id="usertableBean" class="cn.edu.zucc.model.TbUserEntity" />
+	<bean id="articleService" class="cn.edu.zucc.service.Article.ArticleServiceImpl" />
+	<bean id="categoryService" class="cn.edu.zucc.service.Category.CategoryServiceImpl" />
+	<bean id="tbArticleEntity" class="cn.edu.zucc.model.TbArticleEntity" />
+	<bean id="tbCategoryEntity" class="cn.edu.zucc.model.TbCategoryEntity" />
+	<bean id="visitorService" class="cn.edu.zucc.service.Visitor.VisitorServiceImpl" />
+	<bean id="vCommentEntity" class="cn.edu.zucc.model.VCommentEntity" />
+	<bean id="tbCommentEntity" class="cn.edu.zucc.model.TbCommentEntity" />
+	<bean id="articleDao" class="cn.edu.zucc.dao.Article.ArticleDaoImpl" />
+	<bean id="userDao" class="cn.edu.zucc.dao.User.UserDaoImpl" />
 	<bean id="guestDao" class="cn.edu.zucc.dao.Guest.GuestDaoImpl" />
 	<bean id="commentDao" class="cn.edu.zucc.dao.Comment.CommentDaoImpl" />
-
-
+	<bean id="categoryDao" class="cn.edu.zucc.dao.Category.CategoryDaoImpl" />
 
 
 

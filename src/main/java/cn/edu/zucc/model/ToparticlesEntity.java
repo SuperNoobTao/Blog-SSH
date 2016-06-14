@@ -1,6 +1,7 @@
 package cn.edu.zucc.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
@@ -8,7 +9,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "toparticles", schema = "blogs", catalog = "")
-public class ToparticlesEntity {
+public class ToparticlesEntity  implements Serializable {
     private String articleTitle;
     private Timestamp articleCdate;
     private Integer articleLooks;

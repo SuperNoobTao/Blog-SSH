@@ -1,8 +1,9 @@
 package cn.edu.zucc.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Page<T> {
+public class Page<T>  implements Serializable {
 
 	// 每页记录数
 	public static final int PAGE_SIZE = 10;

@@ -23,9 +23,9 @@ function check_str_len(name,obj,maxLength){
 
 //验证只能为数字
 function checkNumber(obj){
-	var reg = /^[0-9]+$/;
+	var reg = /^([a-z]|[A-Z]|[0-9]){8}$/;
 	if(obj.value!=""&&!reg.test(obj.value)){
-		alert('只能输入数字！');
+		alert('只能输入数字和字母！');
 		obj.value = "";
 		obj.focus();
 		return false;

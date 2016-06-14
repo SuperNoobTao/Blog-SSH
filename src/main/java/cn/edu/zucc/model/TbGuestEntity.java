@@ -1,13 +1,14 @@
 package cn.edu.zucc.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by shentao on 2016/5/31.
  */
 @Entity
 @Table(name = "tb_guest", schema = "blogs", catalog = "")
-public class TbGuestEntity {
+public class TbGuestEntity  implements Serializable {
     private int guestId;
     private String guestName;
     private String guestEmail;

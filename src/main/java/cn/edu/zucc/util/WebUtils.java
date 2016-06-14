@@ -89,22 +89,5 @@ public class WebUtils {
 		}
 	}
 
-	/**
-	 * 通过文件名和UUID结合得到唯一的文件名
-	 *
-	 * @param filename 文件名
-	 * @return 返回UUID结合的唯一文件名
-	 */
-	public static String encodeFilename(String filename) {
-		return getUUID() + "_" + filename.substring(filename.lastIndexOf("."));
-	}
 
-	/**
-	 * 获取一个UUID字符串
-	 *
-	 * @return返回的UUID字符串
-	 */
-	public static String getUUID() {
-		return UUID.randomUUID().toString();
-	}
 }

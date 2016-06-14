@@ -9,11 +9,6 @@ import org.hibernate.Session;
  * Created by shentao on 2016/5/21.
  */
 public class UserDaoImpl extends CommonDaoImpl<TbUserEntity> implements  UserDao{
-
-
-
-
-
     @Override
     public TbUserEntity login(String uAcount, String uPwd) {
         try {

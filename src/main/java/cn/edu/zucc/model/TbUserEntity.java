@@ -1,6 +1,7 @@
 package cn.edu.zucc.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
@@ -8,7 +9,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "tb_user", schema = "blogs", catalog = "")
-public class TbUserEntity {
+public class TbUserEntity  implements Serializable {
     private int userId;
     private String userAcount;
     private String userPwd;

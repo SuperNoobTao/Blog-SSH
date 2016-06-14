@@ -41,7 +41,7 @@
         <form method="post" class="am-form" action="UserAction_login.action" >
           <div class="am-input-group am-form-group">
             <span class="am-input-group-label"><i class="am-icon-user am-icon-fw"></i></span>
-            <input type="text" class="am-form-field" name="usertableBean.userAcount" id = "username" placeholder="Username"  onblur="check_blank(this,'账号')" >
+            <input type="text" class="am-form-field" name="usertableBean.userAcount" id = "username" placeholder="Username"  onblur="check_blank(this,'账号')|check_str_len('账号',this,10)|checkZmOrNum(this)" >
           </div>
 
           <%--密码--%>

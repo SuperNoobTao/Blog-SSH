@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -47,7 +48,7 @@ public abstract class CommonDaoImpl<T> implements CommonDAO<T> {
     }
 
     //删除
-    public boolean delete(T persistentInstance) throws Exception
+    public boolean delete(T persistentInstance) throws SQLException
     {
         try {
             getSessionFactory().getCurrentSession().delete(persistentInstance);

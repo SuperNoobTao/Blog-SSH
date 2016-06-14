@@ -48,9 +48,8 @@ public class ServiceUtils {
         }
     }
 
-    /*
-    半静态化页面，将页面中的稳定数据事先静态化，正则表达式实现
-     */
+//    半静态化页面，将页面中的稳定数据事先静态化，正则表达式实现
+
     public static void staticPage(TbArticleEntity article, String contextPath, TbCategoryEntity category, String realPath) {
         //静态化页面
         String path = realPath + File.separator + article.getCategoryId() + File.separator + article.getCategoryId() + "-" + article.getArticleId() + ".ftl";

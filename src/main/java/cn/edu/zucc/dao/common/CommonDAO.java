@@ -1,5 +1,6 @@
 package cn.edu.zucc.dao.common;
 
+import java.sql.SQLException;
 import java.util.List;
 
 
@@ -11,7 +12,7 @@ public interface CommonDAO<T> {
 
     public boolean save(T transientInstance) throws Exception;
 
-    public boolean delete(T persistentInstance) throws Exception;
+    public boolean delete(T persistentInstance) throws SQLException;
 
     public  boolean update(T instance) throws Exception;
 

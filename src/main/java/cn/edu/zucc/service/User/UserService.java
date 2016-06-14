@@ -18,7 +18,7 @@ public interface UserService {
     public int updateByQuery(String hql);
     public TbUserEntity findById(Integer id);
     public List<TbUserEntity> findByqQuery(String hql);
-    public List<TbUserEntity> getUserList();
+    public List<TbUserEntity> getUserList() throws Exception;
     public  List<TbUserEntity> queryForPage(String hql, int offset,int length);
 
 

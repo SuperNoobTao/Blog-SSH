@@ -28,7 +28,7 @@
 <body>
 <div class="header">
     <div class="am-g">
-        <h1>几乎</h1>
+        <h1>红茶先森的博客</h1>
         <p>分享知识<br/>一个知识分享的平台</p>
     </div>
     <hr />

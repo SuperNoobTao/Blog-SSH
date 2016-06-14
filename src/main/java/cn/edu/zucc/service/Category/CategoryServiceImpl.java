@@ -66,11 +66,13 @@ public class CategoryServiceImpl implements CategoryService{
         try {
         TbCategoryEntity tbCategoryEntity;
         tbCategoryEntity = categoryDao.findById(categoryId);
-        return categoryDao.delete(tbCategoryEntity);
-        } catch (Exception e) {
-            if(e.getMessage().contains("a foreign key constraint fails"))
-                throw new ForeignKeyException(e);
-            throw new RuntimeException(e);
+        categoryDao.delete(tbCategoryEntity);
+        return true;
+        } catch (SQLException e) {
+            if(e.getMessage().contains("a foreign key constraint fails")){
+                System.out.println("捕获异常");
+                throw new ForeignKeyException(e);}
+                throw new RuntimeException(e);
         }
     }
 

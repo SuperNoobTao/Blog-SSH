@@ -34,7 +34,7 @@ public class CategoryDaoImpl extends CommonDaoImpl<TbCategoryEntity> implements 
 
     @Override
     public List<TbCategoryEntity> getPageData(int startindex, int pagesize) throws SQLException {
-        String hql ="from TbCategoryEntity";
+        String hql ="from TbCategoryEntity order by categoryCdate desc";
         Session session = getSessionFactory().getCurrentSession();
         Query query = session.createQuery(hql);
         query.setFirstResult((startindex/pagesize)*pagesize);

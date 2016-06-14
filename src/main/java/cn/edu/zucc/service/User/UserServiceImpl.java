@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<TbUserEntity> getUserList() {
+    public List<TbUserEntity> getUserList() throws Exception {
         return getUserDao().findAll();
     }
 

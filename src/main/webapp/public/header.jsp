@@ -51,9 +51,9 @@
 
 <div class="wrapper">
   <ul class="social">
-    <li><a class="rss" href="${pageContext.request.contextPath}/rssBlogUI.action" title="博客订阅"></a></li>
-    <li><a class="qq" href="tencent://message/?uin=1098129797&Site=&Menu=yes" title="QQ"></a></li>
-    <li><a class="weibo" href="http://weibo.com/u/2671168890" title="新浪微博"></a></li>
+    <li><a class="rss" href="#" title="博客订阅"></a></li>
+    <li><a class="qq" href="tencent://message/?uin=387944558&Site=&Menu=yes" title="QQ"></a></li>
+    <li><a class="weibo" href="#" title="新浪微博"></a></li>
     <li><a class="wechat" href="${pageContext.request.contextPath}/public/wechat.jsp" title="微信"></a></li>
     <li><a class="email" href="mailto:387944558@qq.com" title="邮件"></a></li>
     <li><a class="phone" href="tel:15167195271" title="手机"></a></li>

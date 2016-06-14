@@ -1,6 +1,7 @@
 package cn.edu.zucc.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
@@ -8,7 +9,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "tb_comment", schema = "blogs", catalog = "")
-public class TbCommentEntity {
+public class TbCommentEntity  implements Serializable {
     private int commetId;
     private String commetContent;
     private int guestId;
