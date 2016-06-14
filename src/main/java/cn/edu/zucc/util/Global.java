@@ -1,6 +1,7 @@
 package cn.edu.zucc.util;
 
 
+import cn.edu.zucc.model.LastarticleEntity;
 import cn.edu.zucc.model.TbArticleEntity;
 import cn.edu.zucc.model.TbCategoryEntity;
 
@@ -41,11 +42,11 @@ public class Global {
     public static void setIsLast(boolean isLast) {
         Global.isLast = isLast;
     }
-    private static List<TbArticleEntity> lastArticles = new ArrayList<TbArticleEntity>();
-    public static List<TbArticleEntity> getLastArticles() {
+    private static List<LastarticleEntity> lastArticles = new ArrayList<LastarticleEntity>();
+    public static List<LastarticleEntity> getLastArticles() {
         return lastArticles;
     }
-    public static void setLastArticles(List<TbArticleEntity> lastArticles) {
+    public static void setLastArticles(List<LastarticleEntity> lastArticles) {
         lastArticles = lastArticles;
     }
 

@@ -1,7 +1,6 @@
 package cn.edu.zucc.dao.Guest;
 
-import cn.edu.zucc.common.CommonDAO;
-import cn.edu.zucc.dao.Comment.CommentDao;
+import cn.edu.zucc.dao.common.CommonDAO;
 import cn.edu.zucc.model.TbGuestEntity;
 
 import java.sql.SQLException;

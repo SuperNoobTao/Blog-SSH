@@ -1,4 +1,4 @@
-package cn.edu.zucc.common;
+package cn.edu.zucc.dao.common;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public interface CommonDAO<T> {
 
     public List<T> findByqQuery(String hql);
 
-    public List<T> findAll();
+    public List<T> findAll() throws Exception;
 
     public  List<T> queryForPage(String hql, int offset,int length);
 

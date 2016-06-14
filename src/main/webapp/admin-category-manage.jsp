@@ -26,7 +26,7 @@
   <div class="admin-content">
     <div class="admin-content-body">
       <div class="am-cf am-padding am-padding-bottom-0">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">类别列表</strong></div>
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">类别管理</strong></div>
       </div>
 
       <hr>

@@ -163,11 +163,27 @@ public class ArticleServiceImpl implements ArticleService{
 
         //最新三篇文章
         List<LastarticleEntity> lastArticles = null;
-        lastArticles = articleDao.findAllLastarticle();
+        //先查缓存
+        if (Global.isIsLast())
+            lastArticles = Global.getLastArticles();
+        else {
+            lastArticles = articleDao.findAllLastarticle();
+            Global.setLastArticles(lastArticles);
+            Global.setIsLast(false);
+        }
 
         //所有类别
         List<TbCategoryEntity> categories = null;
-        categories = categoryDao.findAll();
+        //先查缓存
+        if (Global.isCategories_cached())
+            categories = Global.getCategories();
+        else {
+            categories = categoryDao.findAll();
+            Global.setCategories(categories);
+            Global.setCategories_cached(false);
+        }
+
+
 
         //下一篇
         ArticlesEntity next = null;

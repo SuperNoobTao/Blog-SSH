@@ -5,6 +5,7 @@ import cn.edu.zucc.dao.Category.CategoryDaoImpl;
 import cn.edu.zucc.exception.ForeignKeyException;
 import cn.edu.zucc.model.Page;
 import cn.edu.zucc.model.TbCategoryEntity;
+import cn.edu.zucc.util.Global;
 import org.springframework.jdbc.support.JdbcUtils;
 
 import java.sql.SQLException;
@@ -18,21 +19,31 @@ public class CategoryServiceImpl implements CategoryService{
 
     private CategoryDao categoryDao;
 
-
     public CategoryDao getCategoryDao() {
         return categoryDao;
     }
-
     public void setCategoryDao(CategoryDao categoryDao) {
         this.categoryDao = categoryDao;
     }
 
 
-
     //得到所有类别
     @Override
     public List<TbCategoryEntity> getAllCategories() throws Exception {
-        return getCategoryDao().findAll();
+        //缓存中有，直接查询缓存
+        if (Global.isCategories_cached()) {
+            List<TbCategoryEntity> list =Global.getCategories();
+            for (int i = 0;i<list.size();i++) {
+                System.out.println("缓存="+list.get(i).toString());
+            }
+            return Global.getCategories();
+        }
+        //还没缓存  查询数据库
+        List<TbCategoryEntity> list = categoryDao.findAll();
+        Global.setCategories(list);
+        Global.setCategories_cached(true);
+
+        return list;
     }
 
 
@@ -47,6 +58,7 @@ public class CategoryServiceImpl implements CategoryService{
         }
             return categoryDao.save(tbCategoryEntity);
     }
+
 
     //删除类别
     @Override
@@ -65,14 +77,9 @@ public class CategoryServiceImpl implements CategoryService{
 
     //查询指定类别
     public TbCategoryEntity queryCategory(Integer cid) throws Exception {
-        try {
-            // 设置事务隔离级别
-            TbCategoryEntity category = categoryDao.findById(cid);
-            return category;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
+        // 设置事务隔离级别
+        TbCategoryEntity category = categoryDao.findById(cid);
+        return category;
     }
 
 

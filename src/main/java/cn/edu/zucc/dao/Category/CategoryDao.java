@@ -1,6 +1,6 @@
 package cn.edu.zucc.dao.Category;
 
-import cn.edu.zucc.model.TbArticleEntity;
+import cn.edu.zucc.dao.common.CommonDAO;
 import cn.edu.zucc.model.TbCategoryEntity;
 
 import java.sql.SQLException;
@@ -9,22 +9,9 @@ import java.util.List;
 /**
  * Created by shentao on 2016/5/31.
  */
-public interface CategoryDao {
+public interface CategoryDao extends CommonDAO<TbCategoryEntity>{
 
-    //增
-    public  boolean  save(TbCategoryEntity tbCategoryEntity)  throws Exception;
-
-    //删
-    public boolean delete(TbCategoryEntity tbCategoryEntity)  throws Exception;
-
-    //改
-    public boolean update(TbCategoryEntity tbCategoryEntity)  throws Exception;
-
-
-    //查单个
-    public TbCategoryEntity findById(Integer id) throws Exception;
-
-
+    //查单个byname
     public TbCategoryEntity findByName(String name) throws Exception;
 
 

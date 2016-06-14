@@ -1,9 +1,7 @@
-package cn.edu.zucc.common;
+package cn.edu.zucc.dao.common;
 
-import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Criterion;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

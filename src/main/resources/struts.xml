@@ -34,7 +34,7 @@
                         <result name="query">/admin-article-manage.jsp</result>
                         <result name="success">/admin-article.jsp</result>
                         <result name="input">/admin-article.jsp</result>
-                        <result name="message">/message.jsp</result>
+                        <result name="message">/blog_message.jsp</result>
                         <result name="delete" type="redirectAction">article</result>
                         <param name="method">{1}</param>
                 </action>
@@ -44,7 +44,7 @@
                         <result name="query">/admin-category-manage.jsp</result>
                         <result name="success">/admin-category.jsp</result>
                         <result name="input">/admin-category.jsp</result>
-                        <result name="message">/message.jsp</result>
+                        <result name="message">/blog_message.jsp</result>
                         <result name="delete" type="redirectAction">category</result>
                         <param name="method">{1}</param>
                 </action>
@@ -72,16 +72,16 @@
                 <default-action-ref name="index"></default-action-ref>
                 <!-- 主页 -->
                 <action name="index" class="cn.edu.zucc.action.IndexAction" >
-                        <result>/blog-index.jsp</result>
+                        <result>/blog_index.jsp</result>
                 </action>
 
                 <!-- 访客留言 -->
                 <action name="commentUI" class="cn.edu.zucc.action.CommentAction" method="commentUI">
-                        <result>/comment.jsp</result>
+                        <result>/blog_comment.jsp</result>
                         <param name="method">commentUI</param>
                 </action>
                 <action name="comment" class="cn.edu.zucc.action.CommentAction" method="comment">
-                        <result name="input">/comment.jsp</result>
+                        <result name="input">/blog_comment.jsp</result>
                         <result name="success" type="redirectAction">commentUI</result>
                         <param name="method">comment</param>
                 </action>
@@ -91,6 +91,7 @@
                         <result name="r_error">/register.jsp</result>
                         <result name="success">/admin-index.jsp</result>
                         <result name="error">/login.jsp</result>
+                        <result name="q_success">/login.jsp</result>
                         <result name="login">/login.jsp</result>
                         <result name="register">/register.jsp</result>
 

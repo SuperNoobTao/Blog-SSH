@@ -4,7 +4,10 @@ import cn.edu.zucc.model.TbUserEntity;
 import cn.edu.zucc.service.User.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.ServletActionContext;
 import org.springframework.ui.Model;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by shentao on 2016/5/22.
@@ -30,7 +33,7 @@ public class UserAction extends ActionSupport{
     }
 
 
-
+    //登录
     public String login() throws Exception {
         String studentNumber = this.getUsertableBean().getUserAcount();
         String pwd = this.getUsertableBean().getUserPwd();
@@ -46,13 +49,12 @@ public class UserAction extends ActionSupport{
         return ERROR;
     }
 
-
+    //注册
     public  String register() throws Exception{
         String studentNumber = this.getUsertableBean().getUserAcount();
         String pwd = this.getUsertableBean().getUserPwd();
         String email = this.getUsertableBean().getUserEmail();
         String cell_phone = this.getUsertableBean().getUserPhone();
-
 
         TbUserEntity user = new TbUserEntity();
         user.setUserAcount(studentNumber);
@@ -69,16 +71,29 @@ public class UserAction extends ActionSupport{
         if(i==1){
             return "r_success";
         }
-
        return "r_error";
     }
+
 
     //登陆界面
     public String loginui(){
         return "login";
     }
+
     //注册界面
     public String registerui(){
         return "register";
     }
+
+    //注销
+    public String quit() {
+        System.out.println("LoginAction - quit");
+        HttpSession session = ServletActionContext.getRequest().getSession();
+        session.removeAttribute("user");
+        return "q_success";
+    }
+
+
+
+
 }

@@ -26,7 +26,7 @@
   <div class="admin-content">
     <div class="admin-content-body">
       <div class="am-cf am-padding">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">欢迎您来到博客后台</strong> ---- <small>${user.userAcount}---${user.userName}</small></div>
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">欢迎您来到博客后台</strong></div>
       </div>
 
       <ul class="am-avg-sm-1 am-avg-md-4 am-margin am-padding am-text-center admin-content-list ">

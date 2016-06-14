@@ -39,12 +39,6 @@ public class CommentManage extends ActionSupport {
 
 
 
-
-
-
-
-
-
     //分页查询留言界面
     public String query() throws SQLException {
         //分页查询所有留言

@@ -1,7 +1,6 @@
 package cn.edu.zucc.dao.Guest;
-import cn.edu.zucc.common.CommonDaoImpl;
+import cn.edu.zucc.dao.common.CommonDaoImpl;
 import cn.edu.zucc.model.TbGuestEntity;
-import cn.edu.zucc.model.VCommentEntity;
 import org.hibernate.Query;
 import org.hibernate.Session;
 

@@ -1,6 +1,6 @@
 package cn.edu.zucc.dao.User;
 
-import cn.edu.zucc.common.CommonDaoImpl;
+import cn.edu.zucc.dao.common.CommonDaoImpl;
 import cn.edu.zucc.model.TbUserEntity;
 import org.hibernate.Query;
 import org.hibernate.Session;

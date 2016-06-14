@@ -19,6 +19,8 @@ public class IndexAction extends ActionSupport{
         this.articleService = articleService;
     }
 
+
+    //加载首页信息
     @Override
     public String execute() throws Exception {
 

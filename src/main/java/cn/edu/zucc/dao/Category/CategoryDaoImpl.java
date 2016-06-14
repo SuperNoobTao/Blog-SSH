@@ -1,7 +1,6 @@
 package cn.edu.zucc.dao.Category;
 
-import cn.edu.zucc.common.CommonDaoImpl;
-import cn.edu.zucc.model.TbArticleEntity;
+import cn.edu.zucc.dao.common.CommonDaoImpl;
 import cn.edu.zucc.model.TbCategoryEntity;
 import org.hibernate.Query;
 import org.hibernate.Session;

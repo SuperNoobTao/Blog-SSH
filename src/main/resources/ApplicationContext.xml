@@ -85,7 +85,7 @@
 
 	<!--在通用DAO中依赖注入sessionFactory-->
 	<bean id="baseDao"
-		  class="cn.edu.zucc.common.CommonDaoImpl" abstract="true">
+		  class="cn.edu.zucc.dao.common.CommonDaoImpl" abstract="true">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>

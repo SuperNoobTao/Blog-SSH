@@ -1,7 +1,6 @@
 package cn.edu.zucc.dao.Article;
 
-import cn.edu.zucc.common.CommonDaoImpl;
-import cn.edu.zucc.dao.User.UserDao;
+import cn.edu.zucc.dao.common.CommonDaoImpl;
 import cn.edu.zucc.model.*;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;

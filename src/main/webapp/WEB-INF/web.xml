@@ -27,20 +27,31 @@
     <url-pattern>*.htm</url-pattern>
   </filter-mapping>
 
-
-
-
-
   <context-param>
   <param-name>contextConfigLocation</param-name>
   <param-value>classpath*:ApplicationContext.xml</param-value>
 </context-param>
 
-        <!-- Spring配置 -->
+  <!-- Spring配置 -->
 <listener>
 <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 </listener>
 
+
+
+  <!-- 全站不缓存动态页面过滤器 -->
+  <filter>
+    <filter-name>NoCacheFilter</filter-name>
+    <filter-class>cn.edu.zucc.filter.NoCacheFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>NoCacheFilter</filter-name>
+    <url-pattern>*.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>NoCacheFilter</filter-name>
+    <url-pattern>*.action</url-pattern>
+  </filter-mapping>
 
 
 

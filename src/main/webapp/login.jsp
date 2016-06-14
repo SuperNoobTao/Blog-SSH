@@ -10,7 +10,7 @@
   <meta http-equiv="Cache-Control" content="no-siteapp" />
   <link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
   <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
-
+  <script type="text/javascript" src="js/login/common.js"></script>
   <style>
 
     .header {
@@ -30,7 +30,7 @@
 <body>
 <div class="header">
   <div class="am-g">
-    <h1>IOnline</h1>
+    <h1>红茶先森的博客</h1>
     <p>分享知识<br/>一个知识分享的平台</p>
   </div>
 
@@ -41,13 +41,13 @@
         <form method="post" class="am-form" action="UserAction_login.action" >
           <div class="am-input-group am-form-group">
             <span class="am-input-group-label"><i class="am-icon-user am-icon-fw"></i></span>
-            <input type="text" class="am-form-field" name="usertableBean.userAcount" placeholder="Username">
+            <input type="text" class="am-form-field" name="usertableBean.userAcount" id = "username" placeholder="Username"  onblur="check_blank(this,'账号')" >
           </div>
 
           <%--密码--%>
           <div class="am-input-group am-form-group">
             <span class="am-input-group-label"><i class="am-icon-lock am-icon-fw"></i></span>
-            <input type="text" class="am-form-field" name="usertableBean.userPwd" placeholder="Password">
+            <input type="text" class="am-form-field" name="usertableBean.userPwd" placeholder="Password"onblur="check_blank(this,'密码')">
           </div>
 
           <label for="remember-me">

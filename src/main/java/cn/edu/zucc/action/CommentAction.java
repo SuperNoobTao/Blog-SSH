@@ -45,7 +45,6 @@ public class CommentAction extends ActionSupport {
         this.visitorService = visitorService;
     }
 
-
     private String title;
     private String artid;
     private String nickname;
@@ -147,8 +146,6 @@ public class CommentAction extends ActionSupport {
 
 
 
-
-
     //提供访客留言界面
     public String commentUI() throws SQLException {
         System.out.println("进入commentaction");
@@ -175,7 +172,6 @@ public class CommentAction extends ActionSupport {
         System.out.println(email+","+nickname);
         //添加访客记录
         long gid = visitorService.addGuest(guest);
-
         TbCommentEntity comment  = new TbCommentEntity();
         comment.setCommetContent(comcontent);
         if (artid == null || artid.equals("")) {
