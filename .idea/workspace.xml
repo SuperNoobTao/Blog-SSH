@@ -4,16 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/cn/edu/zucc/service/Article/ArticleServiceImpl.java" line="158" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="739fa154-b88e-4eec-a809-919bc9b9b45d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/edu/zucc/action/CommentAction.java" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/zucc/action/CommentAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/edu/zucc/dao/Category/CategoryDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/zucc/dao/Category/CategoryDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/edu/zucc/dao/Comment/CommentDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/zucc/dao/Comment/CommentDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/edu/zucc/dao/Guest/GuestDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/zucc/dao/Guest/GuestDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/edu/zucc/model/Page.java" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/zucc/model/Page.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/struts.xml" afterPath="$PROJECT_DIR$/src/main/resources/struts.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/blog_comment.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/blog_comment.jsp" />
-    </list>
+    <list default="true" id="739fa154-b88e-4eec-a809-919bc9b9b45d" name="Default" comment="" />
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1605,7 +1596,7 @@
       <workItem from="1465782578970" duration="9419000" />
       <workItem from="1465807884817" duration="17453000" />
       <workItem from="1465863929662" duration="21292000" />
-      <workItem from="1465915002136" duration="21000" />
+      <workItem from="1465915002136" duration="65000" />
     </task>
     <task id="LOCAL-00001" summary="添加富文本编辑器">
       <created>1464786769432</created>
@@ -1705,7 +1696,14 @@
       <option name="project" value="LOCAL" />
       <updated>1465878342533</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="基础功能已完成(第一阶段完成)">
+      <created>1465915054704</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1465915054704</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1741,7 +1739,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="282351000" />
+    <option name="totallyTimeSpent" value="282395000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1753,7 +1751,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1932" height="1066" extended-state="0" />
+    <frame x="-8" y="-8" width="1932" height="1066" extended-state="1" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1814,7 +1812,8 @@
     <MESSAGE value="留言制作完成" />
     <MESSAGE value="拦截器制作完成" />
     <MESSAGE value="缓存以及登录验证制作完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="缓存以及登录验证制作完成" />
+    <MESSAGE value="基础功能已完成(第一阶段完成)" />
+    <option name="LAST_COMMIT_MESSAGE" value="基础功能已完成(第一阶段完成)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2145,6 +2144,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="644">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
